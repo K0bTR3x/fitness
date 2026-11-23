@@ -145,7 +145,16 @@ export function makeSupabaseRepo(url: string, key: string): Repo {
     async deletePushSubscription(endpoint) { check(await sb.from('push_subscriptions').delete().eq('endpoint', endpoint).select('id')) },
     async sendTestPush() {
       const { data, error } = await sb.functions.invoke('push-tick', { body: { test: true } })
-      if (error) throw new Error('Funksiya cavab vermədi. Supabase-də push-tick funksiyası qurulubmu?')
+      if (error) {
+        // Səbəbi göstər: status + funksiyanın cavabı (ilk 160 simvol)
+        const res = (error as { context?: Response }).context
+        let detail = error.message
+        if (res && typeof res.text === 'function') {
+          const body = await res.text().catch(() => '')
+          detail = `${res.status}${body ? ' · ' + body.slice(0, 160) : ''}`
+        }
+        throw new Error(`Funksiya xətası: ${detail}`)
+      }
       return Number((data as { sent?: number })?.sent ?? 0)
     },
   }
