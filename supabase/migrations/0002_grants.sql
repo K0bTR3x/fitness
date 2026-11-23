@@ -8,3 +8,7 @@ grant select, insert, update, delete on profiles, goal_settings, weight_entries,
   workout_sessions, workout_sets, checkpoints to authenticated;
 grant select on weekly_weight_avg to authenticated;
 grant usage, select on all sequences in schema public to authenticated;
+-- Server funksiyaları (Edge Function, service_role) bütün cədvəlləri oxuyub yazmalıdır.
+grant usage on schema public to service_role;
+grant all on all tables in schema public to service_role;
+grant all on all sequences in schema public to service_role;

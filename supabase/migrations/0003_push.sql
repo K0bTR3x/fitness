@@ -22,3 +22,4 @@ create table if not exists push_log (
   primary key (user_id, day, key)
 );
 alter table push_log enable row level security;  -- yalnız server (service role) yazır
+grant all on push_subscriptions, push_log to service_role;
