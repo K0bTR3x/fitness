@@ -65,3 +65,22 @@ describe('tarix və çəki', () => {
     expect(progressTo(101, 99, 97)).toBe(50)
   })
 })
+
+import { shoppingList, shoppingText } from './shopping'
+import { planFor as pf } from './nutrition'
+describe('shopping list', () => {
+  it('sums a week of menu into groups', () => {
+    const c = seed as unknown as Catalog
+    const days = [1, 2, 3, 4, 5, 6, 7].map((d) => pf(c, d))
+    const g = shoppingList(c, days)
+    const chicken = g.find((x) => x.id === 'et')!.items.find((i) => i.food_id === 'toyuq_filesi')!
+    const total = days.flat().flatMap((p) => p.recipe.items).filter((i) => i.food_id === 'toyuq_filesi').reduce((s, i) => s + i.grams, 0)
+    expect(chicken.grams).toBe(total)
+    expect(chicken.qty).toMatch(/kq$/)
+    const eggs = g.find((x) => x.id === 'et')!.items.find((i) => i.food_id === 'yumurta')!
+    expect(eggs.qty).toMatch(/ədəd$/)
+    const txt = shoppingText(g, 'Siyahı', { toyuq_filesi: true })
+    expect(txt).not.toContain('Toyuq filesi')
+    expect(txt).toContain('Yumurta')
+  })
+})

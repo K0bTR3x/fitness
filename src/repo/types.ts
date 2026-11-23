@@ -1,3 +1,4 @@
+import type { MealOverride } from '../lib/types'
 import type { Catalog, Checkpoint, DayClosure, FoodLog, Goals, LogSlot, Profile, SetLog, WaterLog, WeightEntry, WorkoutSession } from '../lib/types'
 
 export interface Repo {
@@ -35,6 +36,10 @@ export interface Repo {
   closeDay(date: string, logs: FoodLog[], closure: DayClosure): Promise<void>
   reopenDay(date: string): Promise<void>
   getClosures(from: string, to: string): Promise<DayClosure[]>
+  // yeməyi dəyiş
+  getOverrides(): Promise<MealOverride[]>
+  setOverride(o: Omit<MealOverride, 'id'>): Promise<void>
+  deleteOverride(o: Pick<MealOverride, 'date' | 'weekday' | 'slot'>): Promise<void>
   // məşq
   getWorkouts(from: string, to: string): Promise<{ date: string; template_id: string; status: string }[]>
   saveWorkout(s: WorkoutSession): Promise<void>

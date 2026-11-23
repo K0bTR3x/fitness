@@ -1,5 +1,5 @@
 import { createClient, type SupabaseClient } from '@supabase/supabase-js'
-import type { Catalog, Checkpoint, DayClosure, FoodLog, Goals, Profile, SetLog, WaterLog } from '../lib/types'
+import type { Catalog, Checkpoint, DayClosure, FoodLog, Goals, MealOverride, Profile, SetLog, WaterLog } from '../lib/types'
 import type { Repo } from './types'
 
 const CATALOG_CACHE = 'fd-catalog-v1'
@@ -127,6 +127,18 @@ export function makeSupabaseRepo(url: string, key: string): Repo {
     async reopenDay(date) { check(await sb.from('day_closures').delete().eq('date', date)) },
     async getClosures(a, b) {
       return check(await sb.from('day_closures').select('date, kcal_total, protein_total, adherent').gte('date', a).lte('date', b)).map((c: any) => ({ ...c, kcal_total: +c.kcal_total, protein_total: +c.protein_total })) as DayClosure[]
+    },
+    async getOverrides() {
+      return check(await sb.from('meal_overrides').select('id, date, weekday, slot, recipe_id')) as MealOverride[]
+    },
+    async setOverride(o) {
+      await this.deleteOverride(o)
+      check(await sb.from('meal_overrides').insert({ date: o.date, weekday: o.weekday, slot: o.slot, recipe_id: o.recipe_id }).select('id'))
+    },
+    async deleteOverride(o) {
+      let q = sb.from('meal_overrides').delete().eq('slot', o.slot)
+      q = o.date ? q.eq('date', o.date) : q.eq('weekday', o.weekday!)
+      check(await q.select('id'))
     },
     async getWorkouts(a, b) {
       return check(await sb.from('workout_sessions').select('date, template_id, status').gte('date', a).lte('date', b))

@@ -41,6 +41,7 @@ export interface FoodLog extends Macros {
   portion: number | null; grams: number | null; name: string
   source: 'plan' | 'diger' | 'kenarda' | 'elave' | 'mukafat'; kcal_is_estimate: boolean
 }
+export interface MealOverride { id: number | string; date: string | null; weekday: number | null; slot: Slot; recipe_id: string }
 export interface WeightEntry { date: string; weight_kg: number }
 export interface WaterLog { id: number | string; date: string; ml: number; logged_at: string }
 export interface DayClosure { date: string; kcal_total: number; protein_total: number; adherent: boolean }

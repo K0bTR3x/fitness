@@ -29,7 +29,7 @@ const err = ref('')
 onMounted(async () => {
   const [logs, cl] = await Promise.all([repo.getFoodLogs(date.value, date.value), repo.getClosures(date.value, date.value)])
   closed.value = cl.length > 0
-  const plan = planFor(cat.value, isoWeekday(date.value))
+  const plan = app.planOn(date.value)
   rows.value = SLOTS.filter((s) => plan.some((p) => p.slot === s.slot)).map((s) => {
     const p = plan.find((x) => x.slot === s.slot)!.recipe
     const log = logs.find((l) => l.slot === s.slot)
@@ -85,7 +85,7 @@ async function close() {
 async function reopen() { await repo.reopenDay(date.value); closed.value = false; await app.refresh() }
 
 const tomorrow = computed(() => {
-  const plan = planFor(cat.value, isoWeekday(addDays(date.value, 1)))
+  const plan = app.planOn(addDays(date.value, 1))
   const lunch = plan.find((p) => p.slot === 'nahar')
   const fruits = plan.filter((p) => p.slot === 'ara_1' || p.slot === 'ara_2').map((p) => p.recipe.name.toLowerCase())
   return lunch ? `İşə apar: ${lunch.recipe.name.toLowerCase()} (${Math.round(recipeMacros(cat.value, lunch.recipe).kcal)} kcal), ${fruits.join(', ')}.` : ''

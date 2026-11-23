@@ -1,9 +1,9 @@
 import { defineStore } from 'pinia'
 import { computed, ref } from 'vue'
 import { repo } from '../repo'
-import type { Catalog, Checkpoint, DayClosure, FoodLog, Goals, Profile, Slot, WaterLog, WeightEntry } from '../lib/types'
+import type { Catalog, Checkpoint, DayClosure, FoodLog, Goals, MealOverride, Profile, Slot, WaterLog, WeightEntry } from '../lib/types'
 import { addDays, isoWeekday, todayISO, weekStart } from '../lib/dates'
-import { logFromRecipe, logsTotals, planFor } from '../lib/nutrition'
+import { logFromRecipe, logsTotals, planForDate } from '../lib/nutrition'
 
 export const useApp = defineStore('app', () => {
   const email = ref<string | null>(null)
@@ -19,6 +19,7 @@ export const useApp = defineStore('app', () => {
   const foodToday = ref<FoodLog[]>([])
   const closures = ref<DayClosure[]>([])
   const justOpened = ref(0)
+  const overrides = ref<MealOverride[]>([])
 
   async function checkSession() {
     email.value = await repo.currentEmail()
@@ -39,15 +40,26 @@ export const useApp = defineStore('app', () => {
   async function refresh() {
     today.value = todayISO()
     const from = addDays(weekStart(today.value), -35)
-    const [w, wa, f, cps, cl] = await Promise.all([
+    const [w, wa, f, cps, cl, ov] = await Promise.all([
       repo.getWeights(from, today.value), repo.getWater(today.value),
       repo.getFoodLogs(today.value, today.value), repo.getCheckpoints(),
       repo.getClosures(addDays(today.value, -7), today.value),
+      repo.getOverrides().catch(() => [] as MealOverride[]),
     ])
-    weights.value = w; water.value = wa; foodToday.value = f; checkpoints.value = cps; closures.value = cl
+    weights.value = w; water.value = wa; foodToday.value = f; checkpoints.value = cps; closures.value = cl; overrides.value = ov
   }
 
-  const todayPlan = computed(() => (catalog.value ? planFor(catalog.value, isoWeekday(today.value)) : []))
+  const todayPlan = computed(() => (catalog.value ? planForDate(catalog.value, today.value, overrides.value) : []))
+  const planOn = (date: string) => (catalog.value ? planForDate(catalog.value, date, overrides.value) : [])
+  async function swapMeal(o: Omit<MealOverride, 'id'>, alsoToday: string | null) {
+    await repo.setOverride(o)
+    if (alsoToday) await repo.deleteOverride({ date: alsoToday, weekday: null, slot: o.slot })
+    overrides.value = await repo.getOverrides()
+  }
+  async function resetMeal(o: Pick<MealOverride, 'date' | 'weekday' | 'slot'>) {
+    await repo.deleteOverride(o)
+    overrides.value = await repo.getOverrides()
+  }
   const todayTemplate = computed(() => catalog.value?.workout_templates.find((t) => t.weekday === isoWeekday(today.value)) ?? null)
   const isTrainingDay = computed(() => todayTemplate.value?.kind === 'guc')
   const waterMl = computed(() => water.value.reduce((s, w) => s + w.ml, 0))
@@ -102,7 +114,7 @@ export const useApp = defineStore('app', () => {
   }
 
   return {
-    email, booted, error, catalog, profile, goals, checkpoints, today, weights, water, foodToday, closures, justOpened,
+    email, booted, error, catalog, profile, goals, checkpoints, today, weights, water, foodToday, closures, justOpened, overrides, planOn, swapMeal, resetMeal,
     todayPlan, todayTemplate, isTrainingDay, waterMl, waterGoal, totalsToday, todayWeight, lastWeight,
     checkSession, boot, refresh, addWater, undoWater, setGlasses, slotLog, toggleEaten, addExtra, removeLog, saveWeight, signOut,
   }

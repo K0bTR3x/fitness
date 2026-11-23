@@ -40,7 +40,7 @@ const isPast = computed(() => sel.value < app.today)
 const isToday = computed(() => sel.value === app.today)
 const wd = computed(() => isoWeekday(sel.value))
 const tpl = computed(() => cat.value.workout_templates.find((t) => t.weekday === wd.value)!)
-const plan = computed(() => planFor(cat.value, wd.value))
+const plan = computed(() => app.planOn(sel.value))
 const planT = computed(() => roundM(plan.value.reduce((t, p) => { const m = recipeMacros(cat.value, p.recipe); return { kcal: t.kcal + m.kcal, protein: t.protein + m.protein, fat: 0, carb: 0 } }, { kcal: 0, protein: 0, fat: 0, carb: 0 })))
 const factT = computed(() => roundM(logsTotals(logs.value)))
 const waterGoal = computed(() => app.goals!.water_ml + (tpl.value.kind === 'guc' ? app.goals!.water_training_bonus_ml : 0))
@@ -55,7 +55,7 @@ const onTouchStart = (e: TouchEvent) => (touchX = e.touches[0].clientX)
 const onTouchEnd = (e: TouchEvent) => { const dx = e.changedTouches[0].clientX - touchX; if (Math.abs(dx) > 60) go(addDays(sel.value, dx < 0 ? 7 : -7)) }
 
 const tagClass = (s: string) => s === 'çiy' ? 'text-[#9A3412] bg-[#FFEDD5] dark:text-[#FDBA74] dark:bg-[#3B2412]' : s === 'quru' ? 'text-[#1E40AF] bg-[#DBEAFE] dark:text-[#93C5FD] dark:bg-[#172554]' : 'text-ink-2 bg-panel'
-type Row = { time: string; slot: string; name: string; macro?: string; items: { name: string; g: string; tag?: string }[]; carry?: boolean; workout?: boolean; status?: string; strong?: boolean }
+type Row = { time: string; slot: string; name: string; recipeId?: string; slotKey?: string; macro?: string; items: { name: string; g: string; tag?: string }[]; carry?: boolean; workout?: boolean; status?: string; strong?: boolean }
 const rows = computed<Row[]>(() => {
   const out: Row[] = [{ time: '07:05', slot: 'Çəki', name: weight.value !== null ? `${fmt(weight.value)} kq · yazıldı` : isPast.value ? 'yazılmayıb' : 'Ac qarına, tualetdən sonra', items: [] }]
   SLOTS.forEach((s) => {
@@ -67,7 +67,7 @@ const rows = computed<Row[]>(() => {
     if (log) status = log.recipe_id === p.recipe.id && log.portion === 1 ? '✓ Yedim' : `✓ ${log.source === 'kenarda' ? 'Kənarda' : log.portion && log.portion !== 1 ? 'Porsiya ' + fmt(log.portion, 2).replace(/,?0+$/, '') : log.name} · ${Math.round(log.kcal)} kcal`
     else if (isPast.value && closure.value) status = 'Yemədim'
     out.push({
-      time: s.time, slot: s.label, name: p.recipe.name, macro: `${m.kcal} kcal · ${m.protein} q zülal`, carry: s.slot === 'nahar', status,
+      time: s.time, slot: s.label, name: p.recipe.name, recipeId: p.recipe.id, slotKey: s.slot, macro: `${m.kcal} kcal · ${m.protein} q zülal`, carry: s.slot === 'nahar', status,
       items: p.recipe.items.map((i) => { const f = cat.value.foods.find((x) => x.id === i.food_id)!; return { name: itemLabel(f, i.grams), g: `${i.grams} q`, tag: f.state } }),
     })
     if (s.slot === 'ara_2') {
@@ -150,12 +150,14 @@ const extras = computed(() => logs.value.filter((l) => l.slot === 'elave'))
                 <span v-if="r.status" class="text-xs font-semibold rounded-full px-2 py-0.5" :class="r.status === 'Yemədim' ? 'bg-panel text-muted' : 'bg-soft text-primary-strong'">{{ r.status }}</span>
                 <span v-else-if="r.carry" class="text-xs font-semibold text-primary-strong bg-soft rounded-full px-2 py-0.5">İşə apar</span>
               </div>
-              <span class="text-[17px] font-semibold leading-snug">{{ r.name }}</span>
+              <RouterLink v-if="r.recipeId" :to="'/reseptler/' + r.recipeId" class="text-[17px] font-semibold leading-snug text-ink no-underline">{{ r.name }} <span class="text-primary-strong text-sm font-semibold whitespace-nowrap">Resept ›</span></RouterLink>
+              <span v-else class="text-[17px] font-semibold leading-snug">{{ r.name }}</span>
               <span v-if="r.macro" class="num text-[15px] font-semibold text-primary-strong">{{ r.macro }}</span>
               <div v-for="(it, j) in r.items" :key="j" class="flex justify-between gap-2 text-sm text-ink-2 border-t border-panel pt-1.5">
                 <span>{{ it.name }}</span>
                 <span class="num whitespace-nowrap text-muted">{{ it.g }}<span v-if="it.tag" class="text-[11px] font-semibold rounded-md px-1.5 py-px ml-1" :class="tagClass(it.tag)">{{ it.tag }}</span></span>
               </div>
+              <RouterLink v-if="r.slotKey && !r.status && !isPast" :to="{ path: '/deyis/' + r.slotKey, query: { date: sel } }" class="self-start text-sm font-semibold text-primary-strong no-underline pt-0.5">Yeməyi dəyiş</RouterLink>
               <RouterLink v-if="r.workout" to="/zal" class="mt-1 h-[52px] rounded-[14px] bg-primary text-white text-base font-semibold flex items-center justify-center no-underline">Məşqə başla</RouterLink>
             </div>
           </div>

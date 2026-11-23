@@ -1,4 +1,5 @@
-import type { Catalog, Food, FoodLog, Goals, Macros, Recipe, Slot } from './types'
+import type { Catalog, Food, FoodLog, Goals, Macros, MealOverride, Recipe, Slot } from './types'
+import { isoWeekday } from './dates'
 
 export const ZERO: Macros = { kcal: 0, protein: 0, fat: 0, carb: 0 }
 
@@ -25,6 +26,15 @@ export function planFor(cat: Catalog, weekday: number): { slot: Slot; recipe: Re
     .filter((p) => p.weekday === weekday)
     .map((p) => ({ slot: p.slot, recipe: cat.recipes.find((r) => r.id === p.recipe_id)! }))
     .filter((x) => x.recipe)
+}
+/** Konkret tarix üçün plan: gün dəyişikliyi > həftəlik dəyişiklik > əsas menyu */
+export function planForDate(cat: Catalog, date: string, overrides: MealOverride[]): { slot: Slot; recipe: Recipe }[] {
+  const wd = isoWeekday(date)
+  return planFor(cat, wd).map((p) => {
+    const o = overrides.find((x) => x.date === date && x.slot === p.slot) ?? overrides.find((x) => x.weekday === wd && x.slot === p.slot)
+    const r = o ? cat.recipes.find((x) => x.id === o.recipe_id) : null
+    return r ? { slot: p.slot, recipe: r } : p
+  })
 }
 export function planTotals(cat: Catalog, weekday: number): Macros {
   return planFor(cat, weekday).reduce((t, p) => addM(t, recipeMacros(cat, p.recipe)), ZERO)

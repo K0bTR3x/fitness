@@ -1,6 +1,6 @@
 // Demo rejimi: Supabase olmadan, hər şey bu telefonun yaddaşında (localStorage).
 import seed from '../data/seed.json'
-import type { Catalog, Checkpoint, DayClosure, FoodLog, Goals, Profile, SetLog, WaterLog, WeightEntry } from '../lib/types'
+import type { Catalog, Checkpoint, DayClosure, FoodLog, Goals, Profile, SetLog, WaterLog, WeightEntry, MealOverride } from '../lib/types'
 import type { Repo } from './types'
 import { addDays, todayISO, weekStart } from '../lib/dates'
 
@@ -11,13 +11,14 @@ interface DB {
   water: WaterLog[]; food: FoodLog[]; closures: DayClosure[]
   workouts: { date: string; template_id: string; status: string; sets: SetLog[] }[]
   checkpoints: Checkpoint[]; seq: number
+  overrides: MealOverride[]
 }
 const KEY = 'fd-demo-v1'
 let mem: DB | null = null
 
 function fresh(): DB {
   return {
-    email: null, weights: [], waist: [], sleep: {}, water: [], food: [], closures: [], workouts: [], seq: 1,
+    email: null, overrides: [], weights: [], waist: [], sleep: {}, water: [], food: [], closures: [], workouts: [], seq: 1,
     checkpoints: seed.checkpoints.map((c, i) => ({ ...c, id: i + 1, status: 'gozleyir', reached_week: null, reached_avg_kg: null })) as Checkpoint[],
   }
 }
@@ -72,6 +73,12 @@ export const localRepo: Repo = {
   }),
   reopenDay: (date) => tx((db) => { db.closures = db.closures.filter((c) => c.date !== date) }),
   getClosures: (a, b) => tx((db) => db.closures.filter((c) => between(c.date, a, b))),
+  getOverrides: () => tx((db) => db.overrides),
+  setOverride: (o) => tx((db) => {
+    db.overrides = db.overrides.filter((x) => !(x.slot === o.slot && x.date === o.date && x.weekday === o.weekday))
+    db.overrides.push({ ...o, id: db.seq++ })
+  }),
+  deleteOverride: (o) => tx((db) => { db.overrides = db.overrides.filter((x) => !(x.slot === o.slot && x.date === o.date && x.weekday === o.weekday)) }),
   getWorkouts: (a, b) => tx((db) => db.workouts.filter((w) => between(w.date, a, b)).map(({ sets, ...w }) => w)),
   saveWorkout: (s) => tx((db) => { db.workouts = db.workouts.filter((w) => w.date !== s.date).concat(s) }),
   lastSets: (ids) => tx((db) => {

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, onMounted, ref } from 'vue'
-import { Moon, Sun, MessageSquare, Calendar, Check, ChevronRight, Plus, Footprints, Dumbbell, Ruler } from 'lucide-vue-next'
+import { Moon, Sun, MessageSquare, Calendar, Check, ChevronRight, Plus, Footprints, Dumbbell, Ruler, BookOpen, ShoppingCart } from 'lucide-vue-next'
 import { useApp } from '../stores/app'
 import { repo } from '../repo'
 import Bar from '../components/Bar.vue'
@@ -206,6 +206,10 @@ const smallStep = computed(() => {
         <div class="flex-1 flex flex-col gap-0.5 min-w-0">
           <span class="text-lg font-semibold leading-tight">{{ nextMeal.plan.recipe.name }}</span>
           <span class="text-[13px] text-muted leading-snug">{{ nextMealItems }}</span>
+          <span class="flex gap-4 pt-1 text-sm font-semibold">
+            <RouterLink :to="'/reseptler/' + nextMeal.plan.recipe.id" class="text-primary-strong no-underline">Resept</RouterLink>
+            <RouterLink :to="'/deyis/' + nextMeal.slot" class="text-primary-strong no-underline">Dəyiş</RouterLink>
+          </span>
         </div>
         <button type="button" :disabled="busySlot" class="h-12 px-5 rounded-xl border-0 bg-primary text-white text-base font-semibold shrink-0 disabled:opacity-60" @click="eat(nextMeal.slot)">Yedim</button>
       </div>
@@ -214,6 +218,12 @@ const smallStep = computed(() => {
       <span class="w-9 h-9 rounded-full bg-soft text-primary-strong flex items-center justify-center"><Check :size="20" /></span>
       <span class="text-base font-semibold">Bu günün 5 yeməyi qeyd olundu</span>
     </section>
+
+    <!-- qida keçidləri -->
+    <nav aria-label="Qida" class="grid grid-cols-2 gap-2.5">
+      <RouterLink to="/reseptler" class="card px-3.5 py-3 flex items-center gap-2.5 text-ink no-underline"><BookOpen :size="20" class="text-primary-strong shrink-0" /><span class="text-[15px] font-semibold">Reseptlər</span></RouterLink>
+      <RouterLink to="/alis-veris" class="card px-3.5 py-3 flex items-center gap-2.5 text-ink no-underline"><ShoppingCart :size="20" class="text-primary-strong shrink-0" /><span class="text-[15px] font-semibold">Alış-veriş</span></RouterLink>
+    </nav>
 
     <!-- su -->
     <section class="card p-4 flex flex-col gap-3">

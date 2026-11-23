@@ -40,3 +40,8 @@ Açarlar layihə fayllarında `fitness/gizli/bildiris-acarlari.txt` faylındadı
 6. iPhone: tətbiqi **ana ekrandakı ikondan** aç → Bu gün ekranının aşağısında **Bildirişləri aç** → İcazə ver → **Sınaq göndər**.
 
 Cədvəl (Bakı vaxtı): 07:15 çəki, yemək saatları (07:30, 10:30, 13:00, 16:30, 20:15 — yedinsə gəlmir), iş günləri su (09:30–17:30) və hərəkət (11:30, 15:30), məşq günü 18:30, 21:30 Günü bağla (bağlanıbsa gəlmir).
+
+## 6. Yeməyi dəyiş (menyu dəyişiklikləri)
+
+1. **SQL Editor** → `supabase/migrations/0004_meal_overrides.sql` → **Run**.
+2. Tətbiqdə **Bu gün → Dəyiş** ilə yeməyi əvəz et. "Yalnız bu gün" və ya "Hər <həftə günü>" seçilə bilər. Alış-veriş siyahısı özü yenilənir.

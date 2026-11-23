@@ -12,7 +12,7 @@ const items = [
 </script>
 
 <template>
-  <RouterLink v-if="route.meta.nav === 'today' || route.meta.nav === 'food'" to="/qeyd" aria-label="Tez qeyd: çəki, su və ya yemək"
+  <RouterLink v-if="route.path === '/' || route.path.startsWith('/teqvim')" to="/qeyd" aria-label="Tez qeyd: çəki, su və ya yemək"
     class="fixed z-20 right-[max(20px,calc(50%-220px))] w-[60px] h-[60px] rounded-full bg-primary text-white flex items-center justify-center shadow-[0_8px_20px_rgba(21,128,61,0.35)]"
     style="bottom: calc(96px + env(safe-area-inset-bottom))">
     <Plus :size="30" :stroke-width="2.5" />
