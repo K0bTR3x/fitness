@@ -33,7 +33,7 @@ Pulsuz Supabase layihəsi 7 gün heç bir sorğu olmasa dayanır. Hər gün çə
 ## 5. Bildirişlər (push)
 Açarlar layihə fayllarında `fitness/gizli/bildiris-acarlari.txt` faylındadır (GitHub-da yoxdur).
 1. **SQL Editor** → `supabase/migrations/0003_push.sql` → **Run**.
-2. **Edge Functions** → **Deploy a new function** → **Via Editor**. Adı `push-tick` olsun. `supabase/functions/push-tick/index.ts` faylını yapışdır → **Deploy**.
+2. **Edge Functions** → **Deploy a new function** → **Via Editor**. Adı `push-tick` olsun (bizdə dashboard `bright-task` adı verdi; tətbiq `VITE_PUSH_FUNCTION` ilə dəyişir, standart `bright-task`). `supabase/functions/push-tick/index.ts` faylını yapışdır → **Deploy**.
 3. Funksiyanın **Settings** bölməsində **Verify JWT** (Enforce JWT verification) ayarını **söndür** → Save. Funksiya yoxlamanı özü edir.
 4. **Edge Functions → Secrets**: `VAPID_PUBLIC_KEY`, `VAPID_PRIVATE_KEY`, `CRON_SECRET` (dəyərlər açar faylındadır).
 5. Açar faylının sonundakı cron SQL-ini **SQL Editor**-da **Run** et (hər 5 dəqiqədən bir yoxlayır).
