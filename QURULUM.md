@@ -7,8 +7,9 @@
    - `supabase/migrations/0001_init.sql` faylının məzmununu yapışdır → **Run**.
    - Yeni query: `supabase/seed.sql` → **Run** (menyu, ərzaqlar, məşq planı).
 4. **Authentication → Sign In / Providers → Email**: "Enable Email provider" açıq, "Confirm email" açıq qala bilər.
-5. **Authentication → Emails → Magic Link** şablonunu `supabase/email-template.html` ilə əvəz et (məktubda link yox, 6 rəqəmli kod gəlsin).
-6. **Project Settings → API**: `Project URL` və `anon public` açarını kopyala (növbəti addımda lazımdır).
+5. Şablonu dəyişmək üçün Supabase SMTP tələb edir. Pulsuz Resend qoş: resend.com-da tətbiqə girəcəyin e-poçtla qeydiyyatdan keç, API key yarat. Supabase → **Authentication → Emails → SMTP Settings**: Sender `onboarding@resend.dev`, Host `smtp.resend.com`, Port `465`, Username `resend`, Password = API key. (Test rejimi yalnız öz e-poçtuna göndərir, bu kifayətdir.)
+6. **Authentication → Emails → Magic Link** şablonunu `supabase/email-template.html` ilə əvəz et (məktubda link yox, 6 rəqəmli kod gəlsin).
+7. **Project Settings → API**: `Project URL` və `anon public` açarını kopyala (növbəti addımda lazımdır).
 
 ## 2. Kod GitHub-da
 Netlify kodu GitHub-dan götürür. GitHub-da boş, **private** repo yarat (məs. `fitness-dashboard`) və mənə adını yaz, kodu ora mən göndərim.
