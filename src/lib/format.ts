@@ -15,3 +15,10 @@ export function signed(n: number, digits = 1): string {
   if (Math.abs(n) < 0.05) return '0,0'
   return (n > 0 ? '+' : '−') + fmt(Math.abs(n), digits)
 }
+/** Sıra şəkilçisi: 1-ci, 3-cü, 6-cı, 9-cu, 40-cı */
+export function ordinal(n: number): string {
+  const last = n % 10, tens = Math.floor(n / 10) % 10
+  const d = last || tens * 10
+  const map: Record<number, string> = { 1: 'ci', 2: 'ci', 3: 'cü', 4: 'cü', 5: 'ci', 6: 'cı', 7: 'ci', 8: 'ci', 9: 'cu', 10: 'cu', 20: 'ci', 30: 'cu', 40: 'cı', 50: 'ci', 60: 'cı', 70: 'ci', 80: 'ci', 90: 'cı' }
+  return `${n}-${map[d] ?? 'cü'}`
+}

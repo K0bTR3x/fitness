@@ -44,6 +44,11 @@ export const localRepo: Repo = {
   getProfile: async () => seed.profile as Profile,
   getGoals: async () => seed.goals as Goals,
   getCheckpoints: () => tx((db) => db.checkpoints),
+  useReward: (id, note, date) => tx((db) => {
+    const c = db.checkpoints.find((x) => x.id === id && x.status === 'hedefe_catildi')
+    if (!c) throw new Error('Bu mükafat hələ açılmayıb və ya artıq istifadə olunub')
+    c.status = 'mukafat_istifade_edildi'; c.reward_used_at = date; c.reward_note = note
+  }),
   getWeights: (a, b) => tx((db) => db.weights.filter((w) => between(w.date, a, b)).sort((x, y) => x.date.localeCompare(y.date))),
   upsertWeight: (date, kg) => tx((db) => { db.weights = db.weights.filter((w) => w.date !== date).concat({ date, weight_kg: kg }) }),
   getWaist: (upTo) => tx((db) => db.waist.filter((w) => w.date <= upTo).sort((x, y) => x.date.localeCompare(y.date))),
@@ -51,6 +56,7 @@ export const localRepo: Repo = {
   getSleep: (date) => tx((db) => db.sleep[date] ?? { hours: null, confirmed: false }),
   upsertSleep: (date, hours, confirmed) => tx((db) => { db.sleep[date] = { hours, confirmed } }),
   getWater: (date) => tx((db) => db.water.filter((w) => w.date === date)),
+  getWaterRange: (a, b) => tx((db) => db.water.filter((w) => between(w.date, a, b))),
   addWater: (date, ml) => tx((db) => { const w = { id: db.seq++, date, ml, logged_at: new Date().toISOString() }; db.water.push(w); return w }),
   deleteWater: (id) => tx((db) => { db.water = db.water.filter((w) => w.id !== id) }),
   getFoodLogs: (a, b) => tx((db) => db.food.filter((f) => between(f.date, a, b))),

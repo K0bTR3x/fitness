@@ -20,6 +20,7 @@
   --warn-text: #92400E;
   --error: #DC2626;
   --track: #E5E7EB;
+  --gold: #CA8A04;
   color-scheme: light;
 }
 .dark {
@@ -40,6 +41,7 @@
   --warn-text: #FCD34D;
   --error: #F87171;
   --track: #2A323D;
+  --gold: #EAB308;
   color-scheme: dark;
 }
 
@@ -62,6 +64,7 @@
   --color-warn: var(--warn-text);
   --color-danger: var(--error);
   --color-track: var(--track);
+  --color-gold: var(--gold);
 }
 
 html, body { background: var(--bg); color: var(--text); }

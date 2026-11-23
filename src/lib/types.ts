@@ -33,7 +33,7 @@ export interface Catalog {
 
 export interface Profile { start_date: string; start_weight_kg: number; target_12w_kg: number; height_cm: number; est_body_fat_pct: number | null }
 export interface Goals { kcal: number; kcal_tolerance: number; protein_g: number; fat_g: number; carb_g: number; water_ml: number; water_training_bonus_ml: number; steps: number | null }
-export interface Checkpoint { id: number | string; sort: number; label: string; target_kg: number; reward_text: string; status: 'gozleyir' | 'hedefe_catildi' | 'mukafat_istifade_edildi'; reached_week: string | null; reached_avg_kg: number | null }
+export interface Checkpoint { id: number | string; sort: number; label: string; target_kg: number; reward_text: string; status: 'gozleyir' | 'hedefe_catildi' | 'mukafat_istifade_edildi'; reached_week: string | null; reached_avg_kg: number | null; reward_used_at?: string | null; reward_note?: string | null }
 
 export interface Macros { kcal: number; protein: number; fat: number; carb: number }
 export interface FoodLog extends Macros {

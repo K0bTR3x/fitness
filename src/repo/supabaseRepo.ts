@@ -82,6 +82,12 @@ export function makeSupabaseRepo(url: string, key: string): Repo {
     async upsertWeight(date, kg) {
       check(await sb.from('weight_entries').upsert({ user_id: await uid(), date, weight_kg: kg }, { onConflict: 'user_id,date' }))
     },
+    async useReward(id, note, date) {
+      check(await sb.rpc('use_reward', { p_checkpoint_id: Number(id), p_note: note, p_date: date }))
+    },
+    async getWaterRange(a, b) {
+      return check(await sb.from('water_logs').select('id, date, ml, logged_at').gte('date', a).lte('date', b))
+    },
     async getWaist(upTo) {
       return check(await sb.from('body_measurements').select('date, waist_cm').lte('date', upTo).not('waist_cm', 'is', null).order('date')).map((w: any) => ({ date: w.date, waist_cm: +w.waist_cm }))
     },

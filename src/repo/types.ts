@@ -13,6 +13,7 @@ export interface Repo {
   getProfile(): Promise<Profile>
   getGoals(date: string): Promise<Goals>
   getCheckpoints(): Promise<Checkpoint[]>
+  useReward(checkpointId: Checkpoint['id'], note: string, date: string): Promise<void>
   // çəki, bel, yuxu
   getWeights(from: string, to: string): Promise<WeightEntry[]>
   upsertWeight(date: string, kg: number): Promise<void>
@@ -22,6 +23,7 @@ export interface Repo {
   upsertSleep(date: string, hours: number | null, confirmed: boolean): Promise<void>
   // su
   getWater(date: string): Promise<WaterLog[]>
+  getWaterRange(from: string, to: string): Promise<WaterLog[]>
   addWater(date: string, ml: number): Promise<WaterLog>
   deleteWater(id: WaterLog['id']): Promise<void>
   // qida
