@@ -2,7 +2,7 @@
 import { onMounted, ref } from 'vue'
 import { Bell, BellOff } from 'lucide-vue-next'
 import { repo } from '../repo'
-import { pushState, subscribePush, unsubscribePush, type PushState } from '../lib/push'
+import { currentSubscription, pushState, subscribePush, unsubscribePush, type PushState } from '../lib/push'
 
 const state = ref<PushState | null>(null)
 const busy = ref(false)
@@ -10,7 +10,14 @@ const msg = ref('')
 const err = ref('')
 
 async function refresh() { state.value = await pushState().catch(() => 'unsupported' as PushState) }
-onMounted(refresh)
+onMounted(async () => {
+  await refresh()
+  // Brauzerdə abunə var, amma bazada olmaya bilər (məs. cədvəl sonra yaradılıb): səssizcə yenidən yaz
+  if (state.value === 'on') {
+    const sub = await currentSubscription().catch(() => null)
+    if (sub) await repo.savePushSubscription(sub).catch(() => {})
+  }
+})
 
 async function enable() {
   busy.value = true; err.value = ''; msg.value = ''
@@ -35,8 +42,12 @@ async function disable() {
 async function test() {
   busy.value = true; err.value = ''; msg.value = ''
   try {
-    const n = await repo.sendTestPush()
-    msg.value = n > 0 ? 'Göndərildi. Bir neçə saniyəyə gəlməlidir.' : 'Abunə tapılmadı. Söndürüb yenidən aç.'
+    const sub = await currentSubscription()
+    if (sub) await repo.savePushSubscription(sub)
+    const r = await repo.sendTestPush()
+    if (r.sent > 0) msg.value = 'Göndərildi. Bir neçə saniyəyə gəlməlidir.'
+    else if (r.subscriptions > 0) err.value = 'Göndərmək alınmadı. Funksiyanın Logs bölməsinə bax.'
+    else err.value = 'Abunə tapılmadı. Söndürüb yenidən aç.'
   } catch (e) { err.value = e instanceof Error ? e.message : String(e) } finally { busy.value = false }
 }
 </script>

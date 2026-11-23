@@ -42,5 +42,5 @@ export interface Repo {
   // bildirişlər
   savePushSubscription(sub: PushSubscriptionJSON): Promise<void>
   deletePushSubscription(endpoint: string): Promise<void>
-  sendTestPush(): Promise<number>
+  sendTestPush(): Promise<{ sent: number; subscriptions: number }>
 }

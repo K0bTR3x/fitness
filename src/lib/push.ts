@@ -46,3 +46,10 @@ export async function unsubscribePush(): Promise<string | null> {
   await sub.unsubscribe()
   return endpoint
 }
+
+/** Brauzerdə abunə varsa, onu qaytarır (bazaya yenidən yazmaq üçün). */
+export async function currentSubscription(): Promise<PushSubscriptionJSON | null> {
+  const reg = await registration()
+  const sub = await reg?.pushManager.getSubscription()
+  return sub ? sub.toJSON() : null
+}

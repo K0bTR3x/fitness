@@ -161,7 +161,8 @@ export function makeSupabaseRepo(url: string, key: string): Repo {
         }
         throw new Error(`Funksiya xətası: ${detail}`)
       }
-      return Number((data as { sent?: number })?.sent ?? 0)
+      const d = (data ?? {}) as { sent?: number; subscriptions?: number }
+      return { sent: Number(d.sent ?? 0), subscriptions: Number(d.subscriptions ?? 0) }
     },
   }
 }

@@ -38,7 +38,7 @@ export const localRepo: Repo = {
   signOut: () => tx((db) => { db.email = null }),
   savePushSubscription: async () => { throw new Error('Demo rejimində bildiriş yoxdur.') },
   deletePushSubscription: async () => {},
-  sendTestPush: async () => 0,
+  sendTestPush: async () => ({ sent: 0, subscriptions: 0 }),
   ensureUser: async () => {},
   loadCatalog: async () => seed as unknown as Catalog,
   getProfile: async () => seed.profile as Profile,
