@@ -6,7 +6,7 @@ const CATALOG_CACHE = 'fd-catalog-v1'
 const n = (v: unknown) => (v === null || v === undefined ? null : Number(v))
 
 // Supabase-də funksiyanın adı (dashboard özü ad verdi)
-const PUSH_FN = (import.meta.env.VITE_PUSH_FUNCTION as string | undefined) || 'bright-task'
+const PUSH_FNS = [(import.meta.env.VITE_PUSH_FUNCTION as string | undefined) || 'push-tick', 'bright-task']
 
 function check<T>(r: { data: T; error: { message: string } | null }): NonNullable<T> {
   if (r.error) throw new Error(r.error.message)
@@ -147,7 +147,10 @@ export function makeSupabaseRepo(url: string, key: string): Repo {
     },
     async deletePushSubscription(endpoint) { check(await sb.from('push_subscriptions').delete().eq('endpoint', endpoint).select('id')) },
     async sendTestPush() {
-      const { data, error } = await sb.functions.invoke(PUSH_FN, { body: { test: true } })
+      // Ad dəyişə bildiyi üçün: əvvəl push-tick, 404 olsa bright-task
+      let r = await sb.functions.invoke(PUSH_FNS[0], { body: { test: true } })
+      if ((r.error as { context?: Response } | null)?.context?.status === 404) r = await sb.functions.invoke(PUSH_FNS[1], { body: { test: true } })
+      const { data, error } = r
       if (error) {
         // Səbəbi göstər: status + funksiyanın cavabı (ilk 160 simvol)
         const res = (error as { context?: Response }).context
