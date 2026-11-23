@@ -1,0 +1,2239 @@
+{
+ "profile": {
+  "start_date": "2026-11-23",
+  "start_weight_kg": 101.0,
+  "target_12w_kg": 93.0,
+  "height_cm": 181,
+  "sex": "kisi",
+  "birth_year": 2000,
+  "est_body_fat_pct": 30.0
+ },
+ "goals": {
+  "kcal": 2300,
+  "kcal_tolerance": 100,
+  "protein_g": 170,
+  "fat_g": 70,
+  "carb_g": 247,
+  "water_ml": 2500,
+  "water_training_bonus_ml": 500,
+  "steps": 8000
+ },
+ "foods": [
+  {
+   "id": "toyuq_filesi",
+   "name": "Toyuq filesi",
+   "state": "çiy",
+   "kcal_100g": 120.0,
+   "protein_100g": 22.5,
+   "fat_100g": 2.6,
+   "carb_100g": 0.0,
+   "unit_name": null,
+   "unit_grams": null,
+   "is_fruit": false,
+   "note": "çiy"
+  },
+  {
+   "id": "duyu",
+   "name": "Düyü",
+   "state": "quru",
+   "kcal_100g": 360.0,
+   "protein_100g": 7.0,
+   "fat_100g": 0.6,
+   "carb_100g": 79.0,
+   "unit_name": null,
+   "unit_grams": null,
+   "is_fruit": false,
+   "note": "quru/çiy"
+  },
+  {
+   "id": "qarabasaq",
+   "name": "Qarabaşaq",
+   "state": "quru",
+   "kcal_100g": 343.0,
+   "protein_100g": 13.0,
+   "fat_100g": 3.4,
+   "carb_100g": 72.0,
+   "unit_name": null,
+   "unit_grams": null,
+   "is_fruit": false,
+   "note": "quru/çiy"
+  },
+  {
+   "id": "yulaf",
+   "name": "Yulaf",
+   "state": "quru",
+   "kcal_100g": 379.0,
+   "protein_100g": 13.2,
+   "fat_100g": 6.5,
+   "carb_100g": 67.7,
+   "unit_name": null,
+   "unit_grams": null,
+   "is_fruit": false,
+   "note": "quru"
+  },
+  {
+   "id": "kartof",
+   "name": "Kartof",
+   "state": "çiy",
+   "kcal_100g": 77.0,
+   "protein_100g": 2.0,
+   "fat_100g": 0.1,
+   "carb_100g": 17.0,
+   "unit_name": null,
+   "unit_grams": null,
+   "is_fruit": false,
+   "note": "çiy, qabıqsız"
+  },
+  {
+   "id": "yumurta",
+   "name": "Yumurta",
+   "state": "çiy",
+   "kcal_100g": 143.0,
+   "protein_100g": 12.6,
+   "fat_100g": 9.5,
+   "carb_100g": 0.7,
+   "unit_name": "ədəd",
+   "unit_grams": 55,
+   "is_fruit": false,
+   "note": "çiy, 1 ədəd ≈ 55 q"
+  },
+  {
+   "id": "ag_pendir",
+   "name": "Ağ pendir",
+   "state": "hazır",
+   "kcal_100g": 264.0,
+   "protein_100g": 14.2,
+   "fat_100g": 21.3,
+   "carb_100g": 4.1,
+   "unit_name": null,
+   "unit_grams": null,
+   "is_fruit": false,
+   "note": "hazır"
+  },
+  {
+   "id": "kesmik_5",
+   "name": "Kəsmik 5%",
+   "state": "hazır",
+   "kcal_100g": 121.0,
+   "protein_100g": 17.0,
+   "fat_100g": 5.0,
+   "carb_100g": 1.8,
+   "unit_name": null,
+   "unit_grams": null,
+   "is_fruit": false,
+   "note": "hazır"
+  },
+  {
+   "id": "qatiq_2_5",
+   "name": "Qatıq 2,5%",
+   "state": "hazır",
+   "kcal_100g": 53.0,
+   "protein_100g": 2.9,
+   "fat_100g": 2.5,
+   "carb_100g": 4.0,
+   "unit_name": null,
+   "unit_grams": null,
+   "is_fruit": false,
+   "note": "hazır"
+  },
+  {
+   "id": "sud_2_5",
+   "name": "Süd 2,5%",
+   "state": "hazır",
+   "kcal_100g": 52.0,
+   "protein_100g": 2.8,
+   "fat_100g": 2.5,
+   "carb_100g": 4.7,
+   "unit_name": null,
+   "unit_grams": null,
+   "is_fruit": false,
+   "note": "hazır (1 ml ≈ 1 q)"
+  },
+  {
+   "id": "covdar_coreyi",
+   "name": "Çovdar çörəyi",
+   "state": "hazır",
+   "kcal_100g": 259.0,
+   "protein_100g": 8.5,
+   "fat_100g": 3.3,
+   "carb_100g": 48.0,
+   "unit_name": "dilim",
+   "unit_grams": 35,
+   "is_fruit": false,
+   "note": "hazır, 1 dilim ≈ 35 q"
+  },
+  {
+   "id": "pomidor",
+   "name": "Pomidor",
+   "state": "çiy",
+   "kcal_100g": 18.0,
+   "protein_100g": 0.9,
+   "fat_100g": 0.2,
+   "carb_100g": 3.9,
+   "unit_name": null,
+   "unit_grams": null,
+   "is_fruit": false,
+   "note": "çiy"
+  },
+  {
+   "id": "xiyar",
+   "name": "Xiyar",
+   "state": "çiy",
+   "kcal_100g": 15.0,
+   "protein_100g": 0.7,
+   "fat_100g": 0.1,
+   "carb_100g": 3.6,
+   "unit_name": null,
+   "unit_grams": null,
+   "is_fruit": false,
+   "note": "çiy"
+  },
+  {
+   "id": "bolqar_biberi",
+   "name": "Bolqar bibəri",
+   "state": "çiy",
+   "kcal_100g": 27.0,
+   "protein_100g": 1.0,
+   "fat_100g": 0.3,
+   "carb_100g": 6.0,
+   "unit_name": null,
+   "unit_grams": null,
+   "is_fruit": false,
+   "note": "çiy"
+  },
+  {
+   "id": "sogan",
+   "name": "Soğan",
+   "state": "çiy",
+   "kcal_100g": 40.0,
+   "protein_100g": 1.1,
+   "fat_100g": 0.1,
+   "carb_100g": 9.3,
+   "unit_name": null,
+   "unit_grams": null,
+   "is_fruit": false,
+   "note": "çiy"
+  },
+  {
+   "id": "goyerti",
+   "name": "Göyərti",
+   "state": "çiy",
+   "kcal_100g": 36.0,
+   "protein_100g": 3.0,
+   "fat_100g": 0.8,
+   "carb_100g": 6.3,
+   "unit_name": null,
+   "unit_grams": null,
+   "is_fruit": false,
+   "note": "çiy"
+  },
+  {
+   "id": "limon_siresi",
+   "name": "Limon şirəsi",
+   "state": "hazır",
+   "kcal_100g": 22.0,
+   "protein_100g": 0.4,
+   "fat_100g": 0.2,
+   "carb_100g": 6.9,
+   "unit_name": null,
+   "unit_grams": null,
+   "is_fruit": false,
+   "note": "hazır"
+  },
+  {
+   "id": "bitki_yagi",
+   "name": "Bitki yağı",
+   "state": "hazır",
+   "kcal_100g": 884.0,
+   "protein_100g": 0.0,
+   "fat_100g": 100.0,
+   "carb_100g": 0.0,
+   "unit_name": null,
+   "unit_grams": null,
+   "is_fruit": false,
+   "note": "hazır (1 xörək q. ≈ 10 q)"
+  },
+  {
+   "id": "alma",
+   "name": "Alma",
+   "state": "hazır",
+   "kcal_100g": 52.0,
+   "protein_100g": 0.3,
+   "fat_100g": 0.2,
+   "carb_100g": 14.0,
+   "unit_name": null,
+   "unit_grams": null,
+   "is_fruit": true,
+   "note": "təmizlənmiş, toxumsuz"
+  },
+  {
+   "id": "armud",
+   "name": "Armud",
+   "state": "hazır",
+   "kcal_100g": 57.0,
+   "protein_100g": 0.4,
+   "fat_100g": 0.1,
+   "carb_100g": 15.0,
+   "unit_name": null,
+   "unit_grams": null,
+   "is_fruit": true,
+   "note": "təmizlənmiş"
+  },
+  {
+   "id": "naringi",
+   "name": "Naringi",
+   "state": "hazır",
+   "kcal_100g": 53.0,
+   "protein_100g": 0.8,
+   "fat_100g": 0.3,
+   "carb_100g": 13.0,
+   "unit_name": null,
+   "unit_grams": null,
+   "is_fruit": true,
+   "note": "qabıqsız"
+  },
+  {
+   "id": "portagal",
+   "name": "Portağal",
+   "state": "hazır",
+   "kcal_100g": 47.0,
+   "protein_100g": 0.9,
+   "fat_100g": 0.1,
+   "carb_100g": 12.0,
+   "unit_name": null,
+   "unit_grams": null,
+   "is_fruit": true,
+   "note": "qabıqsız"
+  },
+  {
+   "id": "kivi",
+   "name": "Kivi",
+   "state": "hazır",
+   "kcal_100g": 61.0,
+   "protein_100g": 1.1,
+   "fat_100g": 0.5,
+   "carb_100g": 15.0,
+   "unit_name": null,
+   "unit_grams": null,
+   "is_fruit": true,
+   "note": "qabıqsız"
+  },
+  {
+   "id": "xurma",
+   "name": "Xurma",
+   "state": "hazır",
+   "kcal_100g": 70.0,
+   "protein_100g": 0.6,
+   "fat_100g": 0.2,
+   "carb_100g": 19.0,
+   "unit_name": null,
+   "unit_grams": null,
+   "is_fruit": true,
+   "note": "toxumsuz"
+  },
+  {
+   "id": "nar_denesi",
+   "name": "Nar dənəsi",
+   "state": "hazır",
+   "kcal_100g": 83.0,
+   "protein_100g": 1.7,
+   "fat_100g": 1.2,
+   "carb_100g": 19.0,
+   "unit_name": null,
+   "unit_grams": null,
+   "is_fruit": true,
+   "note": "yalnız dənələr"
+  },
+  {
+   "id": "banan",
+   "name": "Banan",
+   "state": "hazır",
+   "kcal_100g": 89.0,
+   "protein_100g": 1.1,
+   "fat_100g": 0.3,
+   "carb_100g": 23.0,
+   "unit_name": null,
+   "unit_grams": null,
+   "is_fruit": true,
+   "note": "qabıqsız"
+  }
+ ],
+ "recipes": [
+  {
+   "id": "alma_naringi",
+   "name": "Alma + naringi",
+   "slot": "ara_1",
+   "is_portable": false,
+   "items": [
+    {
+     "food_id": "alma",
+     "grams": 180.0
+    },
+    {
+     "food_id": "naringi",
+     "grams": 150.0
+    }
+   ]
+  },
+  {
+   "id": "banan",
+   "name": "Banan",
+   "slot": "ara_2",
+   "is_portable": false,
+   "items": [
+    {
+     "food_id": "banan",
+     "grams": 150.0
+    }
+   ]
+  },
+  {
+   "id": "toyuq_filesi_qatiq_qarisigi",
+   "name": "Toyuq filesi + qatıq qarışığı",
+   "slot": "axsam",
+   "is_portable": false,
+   "items": [
+    {
+     "food_id": "toyuq_filesi",
+     "grams": 220.0
+    },
+    {
+     "food_id": "qatiq_2_5",
+     "grams": 200.0
+    },
+    {
+     "food_id": "xiyar",
+     "grams": 120.0
+    },
+    {
+     "food_id": "limon_siresi",
+     "grams": 10.0
+    },
+    {
+     "food_id": "goyerti",
+     "grams": 10.0
+    }
+   ]
+  },
+  {
+   "id": "toyuq_sote_duyu_salat",
+   "name": "Toyuq sote + düyü + salat",
+   "slot": "nahar",
+   "is_portable": true,
+   "items": [
+    {
+     "food_id": "toyuq_filesi",
+     "grams": 230.0
+    },
+    {
+     "food_id": "bolqar_biberi",
+     "grams": 80.0
+    },
+    {
+     "food_id": "sogan",
+     "grams": 40.0
+    },
+    {
+     "food_id": "pomidor",
+     "grams": 80.0
+    },
+    {
+     "food_id": "bitki_yagi",
+     "grams": 15.0
+    },
+    {
+     "food_id": "duyu",
+     "grams": 100.0
+    },
+    {
+     "food_id": "xiyar",
+     "grams": 150.0
+    }
+   ]
+  },
+  {
+   "id": "yulaf_siyigi_kesmik_yumurta",
+   "name": "Yulaf sıyığı + kəsmik + yumurta",
+   "slot": "seher",
+   "is_portable": false,
+   "items": [
+    {
+     "food_id": "yulaf",
+     "grams": 75.0
+    },
+    {
+     "food_id": "sud_2_5",
+     "grams": 250.0
+    },
+    {
+     "food_id": "kesmik_5",
+     "grams": 150.0
+    },
+    {
+     "food_id": "yumurta",
+     "grams": 110.0
+    }
+   ]
+  },
+  {
+   "id": "armud",
+   "name": "Armud",
+   "slot": "ara_1",
+   "is_portable": false,
+   "items": [
+    {
+     "food_id": "armud",
+     "grams": 300.0
+    }
+   ]
+  },
+  {
+   "id": "portagal_kivi",
+   "name": "Portağal + kivi",
+   "slot": "ara_2",
+   "is_portable": false,
+   "items": [
+    {
+     "food_id": "portagal",
+     "grams": 250.0
+    },
+    {
+     "food_id": "kivi",
+     "grams": 80.0
+    }
+   ]
+  },
+  {
+   "id": "toyuq_sis_terevez_qatiq",
+   "name": "Toyuq şiş + tərəvəz + qatıq",
+   "slot": "axsam",
+   "is_portable": false,
+   "items": [
+    {
+     "food_id": "toyuq_filesi",
+     "grams": 200.0
+    },
+    {
+     "food_id": "bolqar_biberi",
+     "grams": 100.0
+    },
+    {
+     "food_id": "pomidor",
+     "grams": 100.0
+    },
+    {
+     "food_id": "qatiq_2_5",
+     "grams": 250.0
+    },
+    {
+     "food_id": "bitki_yagi",
+     "grams": 5.0
+    }
+   ]
+  },
+  {
+   "id": "sobada_toyuq_kartof_salat",
+   "name": "Sobada toyuq + kartof + salat",
+   "slot": "nahar",
+   "is_portable": true,
+   "items": [
+    {
+     "food_id": "toyuq_filesi",
+     "grams": 240.0
+    },
+    {
+     "food_id": "kartof",
+     "grams": 480.0
+    },
+    {
+     "food_id": "bitki_yagi",
+     "grams": 15.0
+    },
+    {
+     "food_id": "pomidor",
+     "grams": 100.0
+    },
+    {
+     "food_id": "xiyar",
+     "grams": 100.0
+    },
+    {
+     "food_id": "goyerti",
+     "grams": 15.0
+    }
+   ]
+  },
+  {
+   "id": "omlet_pendir_corek_terevez",
+   "name": "Omlet + pendir + çörək + tərəvəz",
+   "slot": "seher",
+   "is_portable": false,
+   "items": [
+    {
+     "food_id": "yumurta",
+     "grams": 110.0
+    },
+    {
+     "food_id": "ag_pendir",
+     "grams": 50.0
+    },
+    {
+     "food_id": "covdar_coreyi",
+     "grams": 35.0
+    },
+    {
+     "food_id": "pomidor",
+     "grams": 120.0
+    },
+    {
+     "food_id": "xiyar",
+     "grams": 100.0
+    },
+    {
+     "food_id": "kesmik_5",
+     "grams": 200.0
+    }
+   ]
+  },
+  {
+   "id": "xurma",
+   "name": "Xurma",
+   "slot": "ara_1",
+   "is_portable": false,
+   "items": [
+    {
+     "food_id": "xurma",
+     "grams": 230.0
+    }
+   ]
+  },
+  {
+   "id": "alma_banan",
+   "name": "Alma + banan",
+   "slot": "ara_2",
+   "is_portable": false,
+   "items": [
+    {
+     "food_id": "alma",
+     "grams": 150.0
+    },
+    {
+     "food_id": "banan",
+     "grams": 100.0
+    }
+   ]
+  },
+  {
+   "id": "toyuq_filesi_qatiq_qarisigi_2",
+   "name": "Toyuq filesi + qatıq qarışığı",
+   "slot": "axsam",
+   "is_portable": false,
+   "items": [
+    {
+     "food_id": "toyuq_filesi",
+     "grams": 200.0
+    },
+    {
+     "food_id": "qatiq_2_5",
+     "grams": 200.0
+    },
+    {
+     "food_id": "xiyar",
+     "grams": 120.0
+    },
+    {
+     "food_id": "limon_siresi",
+     "grams": 10.0
+    },
+    {
+     "food_id": "bitki_yagi",
+     "grams": 5.0
+    }
+   ]
+  },
+  {
+   "id": "toyuq_kotleti_qarabasaq_salat",
+   "name": "Toyuq kotleti + qarabaşaq + salat",
+   "slot": "nahar",
+   "is_portable": true,
+   "items": [
+    {
+     "food_id": "toyuq_filesi",
+     "grams": 250.0
+    },
+    {
+     "food_id": "sogan",
+     "grams": 40.0
+    },
+    {
+     "food_id": "yumurta",
+     "grams": 55.0
+    },
+    {
+     "food_id": "bitki_yagi",
+     "grams": 12.0
+    },
+    {
+     "food_id": "qarabasaq",
+     "grams": 100.0
+    },
+    {
+     "food_id": "pomidor",
+     "grams": 100.0
+    },
+    {
+     "food_id": "xiyar",
+     "grams": 100.0
+    }
+   ]
+  },
+  {
+   "id": "yulaf_sud_kesmik_nar",
+   "name": "Yulaf + süd + kəsmik + nar",
+   "slot": "seher",
+   "is_portable": false,
+   "items": [
+    {
+     "food_id": "yulaf",
+     "grams": 70.0
+    },
+    {
+     "food_id": "sud_2_5",
+     "grams": 250.0
+    },
+    {
+     "food_id": "kesmik_5",
+     "grams": 200.0
+    },
+    {
+     "food_id": "nar_denesi",
+     "grams": 50.0
+    }
+   ]
+  },
+  {
+   "id": "naringi_kivi",
+   "name": "Naringi + kivi",
+   "slot": "ara_1",
+   "is_portable": false,
+   "items": [
+    {
+     "food_id": "naringi",
+     "grams": 300.0
+    },
+    {
+     "food_id": "kivi",
+     "grams": 80.0
+    }
+   ]
+  },
+  {
+   "id": "toyuq_sote_yagsiz_qatiq",
+   "name": "Toyuq sote (az yağlı) + qatıq",
+   "slot": "axsam",
+   "is_portable": false,
+   "items": [
+    {
+     "food_id": "toyuq_filesi",
+     "grams": 200.0
+    },
+    {
+     "food_id": "bolqar_biberi",
+     "grams": 100.0
+    },
+    {
+     "food_id": "pomidor",
+     "grams": 100.0
+    },
+    {
+     "food_id": "bitki_yagi",
+     "grams": 10.0
+    },
+    {
+     "food_id": "qatiq_2_5",
+     "grams": 200.0
+    }
+   ]
+  },
+  {
+   "id": "toyuq_sis_duyu_salat",
+   "name": "Toyuq şiş + düyü + salat",
+   "slot": "nahar",
+   "is_portable": true,
+   "items": [
+    {
+     "food_id": "toyuq_filesi",
+     "grams": 250.0
+    },
+    {
+     "food_id": "sogan",
+     "grams": 30.0
+    },
+    {
+     "food_id": "duyu",
+     "grams": 110.0
+    },
+    {
+     "food_id": "bitki_yagi",
+     "grams": 10.0
+    },
+    {
+     "food_id": "pomidor",
+     "grams": 100.0
+    },
+    {
+     "food_id": "xiyar",
+     "grams": 100.0
+    }
+   ]
+  },
+  {
+   "id": "pendir_yumurta_corek_terevez",
+   "name": "Pendir + yumurta + çörək + tərəvəz",
+   "slot": "seher",
+   "is_portable": false,
+   "items": [
+    {
+     "food_id": "yumurta",
+     "grams": 110.0
+    },
+    {
+     "food_id": "ag_pendir",
+     "grams": 55.0
+    },
+    {
+     "food_id": "covdar_coreyi",
+     "grams": 35.0
+    },
+    {
+     "food_id": "pomidor",
+     "grams": 100.0
+    },
+    {
+     "food_id": "xiyar",
+     "grams": 100.0
+    },
+    {
+     "food_id": "bolqar_biberi",
+     "grams": 50.0
+    },
+    {
+     "food_id": "kesmik_5",
+     "grams": 150.0
+    }
+   ]
+  },
+  {
+   "id": "portagal",
+   "name": "Portağal",
+   "slot": "ara_1",
+   "is_portable": false,
+   "items": [
+    {
+     "food_id": "portagal",
+     "grams": 300.0
+    }
+   ]
+  },
+  {
+   "id": "toyuq_filesi_qatiq_qarisigi_3",
+   "name": "Toyuq filesi + qatıq qarışığı",
+   "slot": "axsam",
+   "is_portable": false,
+   "items": [
+    {
+     "food_id": "toyuq_filesi",
+     "grams": 220.0
+    },
+    {
+     "food_id": "qatiq_2_5",
+     "grams": 200.0
+    },
+    {
+     "food_id": "xiyar",
+     "grams": 120.0
+    },
+    {
+     "food_id": "limon_siresi",
+     "grams": 10.0
+    },
+    {
+     "food_id": "bitki_yagi",
+     "grams": 5.0
+    }
+   ]
+  },
+  {
+   "id": "sobada_toyuq_qarabasaq_salat",
+   "name": "Sobada toyuq + qarabaşaq + salat",
+   "slot": "nahar",
+   "is_portable": true,
+   "items": [
+    {
+     "food_id": "toyuq_filesi",
+     "grams": 230.0
+    },
+    {
+     "food_id": "bitki_yagi",
+     "grams": 15.0
+    },
+    {
+     "food_id": "qarabasaq",
+     "grams": 100.0
+    },
+    {
+     "food_id": "pomidor",
+     "grams": 100.0
+    },
+    {
+     "food_id": "xiyar",
+     "grams": 100.0
+    },
+    {
+     "food_id": "goyerti",
+     "grams": 15.0
+    }
+   ]
+  },
+  {
+   "id": "yulaf_siyigi_kesmik_yumurta_2",
+   "name": "Yulaf sıyığı + kəsmik + yumurta",
+   "slot": "seher",
+   "is_portable": false,
+   "items": [
+    {
+     "food_id": "yulaf",
+     "grams": 80.0
+    },
+    {
+     "food_id": "sud_2_5",
+     "grams": 250.0
+    },
+    {
+     "food_id": "kesmik_5",
+     "grams": 150.0
+    },
+    {
+     "food_id": "yumurta",
+     "grams": 110.0
+    }
+   ]
+  },
+  {
+   "id": "xurma_2",
+   "name": "Xurma",
+   "slot": "ara_1",
+   "is_portable": false,
+   "items": [
+    {
+     "food_id": "xurma",
+     "grams": 260.0
+    }
+   ]
+  },
+  {
+   "id": "naringi_nar",
+   "name": "Naringi + nar",
+   "slot": "ara_2",
+   "is_portable": false,
+   "items": [
+    {
+     "food_id": "naringi",
+     "grams": 200.0
+    },
+    {
+     "food_id": "nar_denesi",
+     "grams": 100.0
+    }
+   ]
+  },
+  {
+   "id": "toyuq_sis_qatiq_qarisigi",
+   "name": "Toyuq şiş + qatıq qarışığı",
+   "slot": "axsam",
+   "is_portable": false,
+   "items": [
+    {
+     "food_id": "toyuq_filesi",
+     "grams": 200.0
+    },
+    {
+     "food_id": "qatiq_2_5",
+     "grams": 200.0
+    },
+    {
+     "food_id": "xiyar",
+     "grams": 120.0
+    },
+    {
+     "food_id": "goyerti",
+     "grams": 10.0
+    },
+    {
+     "food_id": "bitki_yagi",
+     "grams": 5.0
+    }
+   ]
+  },
+  {
+   "id": "toyuq_kotleti_kartof_puresi_salat",
+   "name": "Toyuq kotleti + kartof püresi + salat",
+   "slot": "nahar",
+   "is_portable": true,
+   "items": [
+    {
+     "food_id": "toyuq_filesi",
+     "grams": 240.0
+    },
+    {
+     "food_id": "sogan",
+     "grams": 40.0
+    },
+    {
+     "food_id": "bitki_yagi",
+     "grams": 15.0
+    },
+    {
+     "food_id": "kartof",
+     "grams": 480.0
+    },
+    {
+     "food_id": "sud_2_5",
+     "grams": 50.0
+    },
+    {
+     "food_id": "pomidor",
+     "grams": 100.0
+    },
+    {
+     "food_id": "xiyar",
+     "grams": 100.0
+    }
+   ]
+  },
+  {
+   "id": "omlet_pendir_corek_kesmik",
+   "name": "Omlet + pendir + çörək + kəsmik",
+   "slot": "seher",
+   "is_portable": false,
+   "items": [
+    {
+     "food_id": "yumurta",
+     "grams": 110.0
+    },
+    {
+     "food_id": "ag_pendir",
+     "grams": 45.0
+    },
+    {
+     "food_id": "covdar_coreyi",
+     "grams": 35.0
+    },
+    {
+     "food_id": "pomidor",
+     "grams": 120.0
+    },
+    {
+     "food_id": "bolqar_biberi",
+     "grams": 60.0
+    },
+    {
+     "food_id": "kesmik_5",
+     "grams": 200.0
+    }
+   ]
+  },
+  {
+   "id": "kivi_portagal",
+   "name": "Kivi + portağal",
+   "slot": "ara_1",
+   "is_portable": false,
+   "items": [
+    {
+     "food_id": "kivi",
+     "grams": 100.0
+    },
+    {
+     "food_id": "portagal",
+     "grams": 180.0
+    }
+   ]
+  },
+  {
+   "id": "armud_2",
+   "name": "Armud",
+   "slot": "ara_2",
+   "is_portable": false,
+   "items": [
+    {
+     "food_id": "armud",
+     "grams": 230.0
+    }
+   ]
+  },
+  {
+   "id": "sobada_toyuq_terevez_qatiq",
+   "name": "Sobada toyuq + tərəvəz + qatıq",
+   "slot": "axsam",
+   "is_portable": false,
+   "items": [
+    {
+     "food_id": "toyuq_filesi",
+     "grams": 200.0
+    },
+    {
+     "food_id": "bolqar_biberi",
+     "grams": 100.0
+    },
+    {
+     "food_id": "pomidor",
+     "grams": 100.0
+    },
+    {
+     "food_id": "qatiq_2_5",
+     "grams": 200.0
+    },
+    {
+     "food_id": "bitki_yagi",
+     "grams": 8.0
+    }
+   ]
+  },
+  {
+   "id": "toyuq_sote_duyu_salat_2",
+   "name": "Toyuq sote + düyü + salat",
+   "slot": "nahar",
+   "is_portable": true,
+   "items": [
+    {
+     "food_id": "toyuq_filesi",
+     "grams": 250.0
+    },
+    {
+     "food_id": "bolqar_biberi",
+     "grams": 80.0
+    },
+    {
+     "food_id": "sogan",
+     "grams": 40.0
+    },
+    {
+     "food_id": "bitki_yagi",
+     "grams": 15.0
+    },
+    {
+     "food_id": "duyu",
+     "grams": 100.0
+    },
+    {
+     "food_id": "pomidor",
+     "grams": 100.0
+    },
+    {
+     "food_id": "xiyar",
+     "grams": 100.0
+    }
+   ]
+  },
+  {
+   "id": "yulaf_sud_kesmik_alma",
+   "name": "Yulaf + süd + kəsmik + alma",
+   "slot": "seher",
+   "is_portable": false,
+   "items": [
+    {
+     "food_id": "yulaf",
+     "grams": 70.0
+    },
+    {
+     "food_id": "sud_2_5",
+     "grams": 250.0
+    },
+    {
+     "food_id": "kesmik_5",
+     "grams": 200.0
+    },
+    {
+     "food_id": "alma",
+     "grams": 100.0
+    }
+   ]
+  }
+ ],
+ "meal_plan": [
+  {
+   "weekday": 1,
+   "slot": "ara_1",
+   "recipe_id": "alma_naringi"
+  },
+  {
+   "weekday": 1,
+   "slot": "ara_2",
+   "recipe_id": "banan"
+  },
+  {
+   "weekday": 1,
+   "slot": "axsam",
+   "recipe_id": "toyuq_filesi_qatiq_qarisigi"
+  },
+  {
+   "weekday": 1,
+   "slot": "nahar",
+   "recipe_id": "toyuq_sote_duyu_salat"
+  },
+  {
+   "weekday": 1,
+   "slot": "seher",
+   "recipe_id": "yulaf_siyigi_kesmik_yumurta"
+  },
+  {
+   "weekday": 2,
+   "slot": "ara_1",
+   "recipe_id": "armud"
+  },
+  {
+   "weekday": 2,
+   "slot": "ara_2",
+   "recipe_id": "portagal_kivi"
+  },
+  {
+   "weekday": 2,
+   "slot": "axsam",
+   "recipe_id": "toyuq_sis_terevez_qatiq"
+  },
+  {
+   "weekday": 2,
+   "slot": "nahar",
+   "recipe_id": "sobada_toyuq_kartof_salat"
+  },
+  {
+   "weekday": 2,
+   "slot": "seher",
+   "recipe_id": "omlet_pendir_corek_terevez"
+  },
+  {
+   "weekday": 3,
+   "slot": "ara_1",
+   "recipe_id": "xurma"
+  },
+  {
+   "weekday": 3,
+   "slot": "ara_2",
+   "recipe_id": "alma_banan"
+  },
+  {
+   "weekday": 3,
+   "slot": "axsam",
+   "recipe_id": "toyuq_filesi_qatiq_qarisigi_2"
+  },
+  {
+   "weekday": 3,
+   "slot": "nahar",
+   "recipe_id": "toyuq_kotleti_qarabasaq_salat"
+  },
+  {
+   "weekday": 3,
+   "slot": "seher",
+   "recipe_id": "yulaf_sud_kesmik_nar"
+  },
+  {
+   "weekday": 4,
+   "slot": "ara_1",
+   "recipe_id": "naringi_kivi"
+  },
+  {
+   "weekday": 4,
+   "slot": "ara_2",
+   "recipe_id": "armud"
+  },
+  {
+   "weekday": 4,
+   "slot": "axsam",
+   "recipe_id": "toyuq_sote_yagsiz_qatiq"
+  },
+  {
+   "weekday": 4,
+   "slot": "nahar",
+   "recipe_id": "toyuq_sis_duyu_salat"
+  },
+  {
+   "weekday": 4,
+   "slot": "seher",
+   "recipe_id": "pendir_yumurta_corek_terevez"
+  },
+  {
+   "weekday": 5,
+   "slot": "ara_1",
+   "recipe_id": "portagal"
+  },
+  {
+   "weekday": 5,
+   "slot": "ara_2",
+   "recipe_id": "alma_banan"
+  },
+  {
+   "weekday": 5,
+   "slot": "axsam",
+   "recipe_id": "toyuq_filesi_qatiq_qarisigi_3"
+  },
+  {
+   "weekday": 5,
+   "slot": "nahar",
+   "recipe_id": "sobada_toyuq_qarabasaq_salat"
+  },
+  {
+   "weekday": 5,
+   "slot": "seher",
+   "recipe_id": "yulaf_siyigi_kesmik_yumurta_2"
+  },
+  {
+   "weekday": 6,
+   "slot": "ara_1",
+   "recipe_id": "xurma_2"
+  },
+  {
+   "weekday": 6,
+   "slot": "ara_2",
+   "recipe_id": "naringi_nar"
+  },
+  {
+   "weekday": 6,
+   "slot": "axsam",
+   "recipe_id": "toyuq_sis_qatiq_qarisigi"
+  },
+  {
+   "weekday": 6,
+   "slot": "nahar",
+   "recipe_id": "toyuq_kotleti_kartof_puresi_salat"
+  },
+  {
+   "weekday": 6,
+   "slot": "seher",
+   "recipe_id": "omlet_pendir_corek_kesmik"
+  },
+  {
+   "weekday": 7,
+   "slot": "ara_1",
+   "recipe_id": "kivi_portagal"
+  },
+  {
+   "weekday": 7,
+   "slot": "ara_2",
+   "recipe_id": "armud_2"
+  },
+  {
+   "weekday": 7,
+   "slot": "axsam",
+   "recipe_id": "sobada_toyuq_terevez_qatiq"
+  },
+  {
+   "weekday": 7,
+   "slot": "nahar",
+   "recipe_id": "toyuq_sote_duyu_salat_2"
+  },
+  {
+   "weekday": 7,
+   "slot": "seher",
+   "recipe_id": "yulaf_sud_kesmik_alma"
+  }
+ ],
+ "exercises": [
+  {
+   "id": "leg_press",
+   "name": "Leg Press",
+   "category": "guc",
+   "measure": "set_tekrar",
+   "rest_seconds": 90,
+   "demo_frames": [
+    "ex/Leg_Press/0.jpg",
+    "ex/Leg_Press/1.jpg"
+   ],
+   "tips_az": [
+    "Bel və omba oturacaqdan qalxmasın",
+    "Dizlər ayaq ucları istiqamətində",
+    "Yuxarıda dizi tam kilidləmə"
+   ]
+  },
+  {
+   "id": "chest_press",
+   "name": "Chest Press",
+   "category": "guc",
+   "measure": "set_tekrar",
+   "rest_seconds": 90,
+   "demo_frames": [
+    "ex/Leverage_Chest_Press/0.jpg",
+    "ex/Leverage_Chest_Press/1.jpg"
+   ],
+   "tips_az": [
+    "Kürəkləri arxaya sıx, sinə önə",
+    "Dirsəklər çiyindən bir az aşağı",
+    "Geri gəlişi 2 saniyəyə yavaş et"
+   ]
+  },
+  {
+   "id": "lat_pulldown",
+   "name": "Lat Pulldown",
+   "category": "guc",
+   "measure": "set_tekrar",
+   "rest_seconds": 90,
+   "demo_frames": [
+    "ex/Wide-Grip_Lat_Pulldown/0.jpg",
+    "ex/Wide-Grip_Lat_Pulldown/1.jpg"
+   ],
+   "tips_az": [
+    "Barı sinənin yuxarısına çək",
+    "Arxaya çox əyilmə, gövdə sabit",
+    "Dirsəkləri aşağı və geri apar"
+   ]
+  },
+  {
+   "id": "leg_curl",
+   "name": "Leg Curl",
+   "category": "guc",
+   "measure": "set_tekrar",
+   "rest_seconds": 60,
+   "demo_frames": [
+    "ex/Seated_Leg_Curl/0.jpg",
+    "ex/Seated_Leg_Curl/1.jpg"
+   ],
+   "tips_az": [
+    "Oturacağa tam söykən",
+    "Dabanları aşağı və geri çək",
+    "Qayıdışda çəkini atma, idarə et"
+   ]
+  },
+  {
+   "id": "shoulder_press",
+   "name": "Shoulder Press",
+   "category": "guc",
+   "measure": "set_tekrar",
+   "rest_seconds": 90,
+   "demo_frames": [
+    "ex/Leverage_Shoulder_Press/0.jpg",
+    "ex/Leverage_Shoulder_Press/1.jpg"
+   ],
+   "tips_az": [
+    "Beli söykənəcəkdən ayırma",
+    "Yuxarıda qolları tam kilidləmə",
+    "Qarnını gərgin saxla"
+   ]
+  },
+  {
+   "id": "cable_crunch",
+   "name": "Cable Crunch",
+   "category": "qarin",
+   "measure": "set_tekrar",
+   "rest_seconds": 60,
+   "demo_frames": [
+    "ex/Cable_Crunch/0.jpg",
+    "ex/Cable_Crunch/1.jpg"
+   ],
+   "tips_az": [
+    "Omba yerində qalsın, hərəkət qarından gəlsin",
+    "Dirsəkləri dizlərə doğru apar",
+    "Yüngül çəki ilə başla"
+   ]
+  },
+  {
+   "id": "plank",
+   "name": "Plank",
+   "category": "qarin",
+   "measure": "saniye",
+   "rest_seconds": 60,
+   "demo_frames": [
+    "ex/Plank/0.jpg",
+    "ex/Plank/1.jpg"
+   ],
+   "tips_az": [
+    "Başdan dabana düz xətt",
+    "Ombanı qaldırma və endirmə",
+    "Qarnı və ombanı sıx, nəfəsi saxlama"
+   ]
+  },
+  {
+   "id": "goblet_squat",
+   "name": "Goblet Squat",
+   "category": "guc",
+   "measure": "set_tekrar",
+   "rest_seconds": 90,
+   "demo_frames": [
+    "ex/Goblet_Squat/0.jpg",
+    "ex/Goblet_Squat/1.jpg"
+   ],
+   "tips_az": [
+    "Hanteli sinəyə yaxın tut",
+    "Dabanlar yerdən qalxmasın",
+    "Dizlər ayaq ucları istiqamətində açılsın"
+   ]
+  },
+  {
+   "id": "seated_cable_row",
+   "name": "Seated Cable Row",
+   "category": "guc",
+   "measure": "set_tekrar",
+   "rest_seconds": 90,
+   "demo_frames": [
+    "ex/Seated_Cable_Rows/0.jpg",
+    "ex/Seated_Cable_Rows/1.jpg"
+   ],
+   "tips_az": [
+    "Gövdə dik, arxaya yellənmə",
+    "Dirsəkləri bədənə yaxın çək",
+    "Sonda kürəkləri bir-birinə sıx"
+   ]
+  },
+  {
+   "id": "incline_chest_press",
+   "name": "Incline Chest Press",
+   "category": "guc",
+   "measure": "set_tekrar",
+   "rest_seconds": 90,
+   "demo_frames": [
+    "ex/Leverage_Incline_Chest_Press/0.jpg",
+    "ex/Leverage_Incline_Chest_Press/1.jpg"
+   ],
+   "tips_az": [
+    "Kürəklər söykənəcəyə sıxılı",
+    "Dirsəklər çiyindən bir az aşağı",
+    "Yavaş geri gəl, çəkini atma"
+   ]
+  },
+  {
+   "id": "romanian_deadlift",
+   "name": "Romanian Deadlift (hantel)",
+   "category": "guc",
+   "measure": "set_tekrar",
+   "rest_seconds": 90,
+   "demo_frames": [
+    "ex/Stiff-Legged_Dumbbell_Deadlift/0.jpg",
+    "ex/Stiff-Legged_Dumbbell_Deadlift/1.jpg"
+   ],
+   "tips_az": [
+    "Bel düz, hərəkət ombadan gəlir",
+    "Hantellər budlara yaxın enir",
+    "Arxa budda dartılma hiss edəndə qalx"
+   ]
+  },
+  {
+   "id": "leg_extension",
+   "name": "Leg Extension",
+   "category": "guc",
+   "measure": "set_tekrar",
+   "rest_seconds": 60,
+   "demo_frames": [
+    "ex/Leg_Extensions/0.jpg",
+    "ex/Leg_Extensions/1.jpg"
+   ],
+   "tips_az": [
+    "Dizin oxu trenajorun oxu ilə üst-üstə",
+    "Yuxarıda 1 saniyə saxla",
+    "Yavaş en, çəkini atma"
+   ]
+  },
+  {
+   "id": "db_biceps_curl",
+   "name": "DB Biceps Curl",
+   "category": "guc",
+   "measure": "set_tekrar",
+   "rest_seconds": 60,
+   "demo_frames": [
+    "ex/Dumbbell_Bicep_Curl/0.jpg",
+    "ex/Dumbbell_Bicep_Curl/1.jpg"
+   ],
+   "tips_az": [
+    "Dirsəklər bədənə yaxın, yerində",
+    "Gövdəni yelləmə",
+    "Aşağıda qolu tam aç"
+   ]
+  },
+  {
+   "id": "triceps_pushdown",
+   "name": "Triceps Pushdown",
+   "category": "guc",
+   "measure": "set_tekrar",
+   "rest_seconds": 60,
+   "demo_frames": [
+    "ex/Triceps_Pushdown/0.jpg",
+    "ex/Triceps_Pushdown/1.jpg"
+   ],
+   "tips_az": [
+    "Dirsəklər bədənə yapışıq",
+    "Aşağıda qolu tam aç",
+    "Çiyinləri qaldırma"
+   ]
+  },
+  {
+   "id": "dead_bug",
+   "name": "Dead Bug",
+   "category": "qarin",
+   "measure": "set_tekrar",
+   "rest_seconds": 60,
+   "demo_frames": [
+    "ex/Dead_Bug/0.jpg",
+    "ex/Dead_Bug/1.jpg"
+   ],
+   "tips_az": [
+    "Bel yerə yapışıq qalsın",
+    "Qarşı qol və ayaq birlikdə uzanır",
+    "Yavaş, nəfəsi verərək"
+   ]
+  },
+  {
+   "id": "reverse_crunch",
+   "name": "Reverse Crunch",
+   "category": "qarin",
+   "measure": "set_tekrar",
+   "rest_seconds": 60,
+   "demo_frames": [
+    "ex/Reverse_Crunch/0.jpg",
+    "ex/Reverse_Crunch/1.jpg"
+   ],
+   "tips_az": [
+    "Ombanı qarın gücü ilə qaldır",
+    "Ayaqları yelləmə",
+    "Aşağı yavaş en"
+   ]
+  },
+  {
+   "id": "treadmill",
+   "name": "Qaçış yolu",
+   "category": "kardio",
+   "measure": "deqiqe",
+   "rest_seconds": 0,
+   "demo_frames": [
+    "ex/Walking_Treadmill/0.jpg",
+    "ex/Walking_Treadmill/1.jpg"
+   ],
+   "tips_az": [
+    "Rahat danışa biləcəyin temp",
+    "İlk 2 həftə meyil 0–3%",
+    "5 dəq isinmə, 5 dəq soyuma"
+   ]
+  },
+  {
+   "id": "brisk_walk",
+   "name": "Tempolu gəzinti",
+   "category": "gezinti",
+   "measure": "deqiqe",
+   "rest_seconds": 0,
+   "demo_frames": [],
+   "tips_az": [
+    "Sürətli, amma danışa biləcəyin temp",
+    "Çiyinlər rahat, qollar yellənsin",
+    "Su götür"
+   ]
+  },
+  {
+   "id": "outdoor_walk",
+   "name": "Açıq havada gəzinti",
+   "category": "gezinti",
+   "measure": "deqiqe",
+   "rest_seconds": 0,
+   "demo_frames": [],
+   "tips_az": [
+    "Rahat temp",
+    "Telefonsuz 10 dəqiqə də olar",
+    "Havaya uyğun geyin"
+   ]
+  },
+  {
+   "id": "walk",
+   "name": "Gəzinti",
+   "category": "gezinti",
+   "measure": "deqiqe",
+   "rest_seconds": 0,
+   "demo_frames": [],
+   "tips_az": [
+    "Rahat temp",
+    "Addım sayına bax",
+    "İstəsən velotrenajor ilə əvəz et"
+   ]
+  },
+  {
+   "id": "bird_dog",
+   "name": "Bird Dog",
+   "category": "qarin",
+   "measure": "set_tekrar",
+   "rest_seconds": 45,
+   "demo_frames": [],
+   "tips_az": [
+    "Bel düz, qarın gərgin",
+    "Qarşı qol və ayaq birlikdə uzanır",
+    "Hər tərəfdə 1 saniyə saxla"
+   ]
+  },
+  {
+   "id": "stretch",
+   "name": "Dartınma",
+   "category": "mobilizasiya",
+   "measure": "deqiqe",
+   "rest_seconds": 0,
+   "demo_frames": [],
+   "tips_az": [
+    "Hər dartınma 20–30 saniyə",
+    "Ağrı yox, yüngül dartılma",
+    "Nəfəsi saxlama"
+   ]
+  },
+  {
+   "id": "mobility",
+   "name": "Bel, omba və ayaq mobilizasiyası",
+   "category": "mobilizasiya",
+   "measure": "deqiqe",
+   "rest_seconds": 0,
+   "demo_frames": [],
+   "tips_az": [
+    "Yavaş, nəzarətli hərəkət",
+    "Ağrı olan hərəkəti keç",
+    "Nəfəsi saxlama"
+   ]
+  },
+  {
+   "id": "bike",
+   "name": "Velotrenajor",
+   "category": "kardio",
+   "measure": "deqiqe",
+   "rest_seconds": 0,
+   "demo_frames": [],
+   "tips_az": [
+    "İstəyə görə",
+    "Rahat temp",
+    "Gəzinti əvəzinə ola bilər"
+   ]
+  }
+ ],
+ "workout_templates": [
+  {
+   "id": "A1",
+   "code": "A",
+   "weekday": 1,
+   "name": "Full Body A + qarın",
+   "kind": "guc",
+   "items": [
+    {
+     "exercise_id": "leg_press",
+     "sets": 3,
+     "reps_min": 12,
+     "reps_max": 12,
+     "sec_min": null,
+     "sec_max": null,
+     "minutes": null,
+     "minutes_max": null,
+     "note": "İlk 2 həftə: hər setdə 3 təkrar ehtiyat qalsın",
+     "sort": 1
+    },
+    {
+     "exercise_id": "chest_press",
+     "sets": 3,
+     "reps_min": 12,
+     "reps_max": 12,
+     "sec_min": null,
+     "sec_max": null,
+     "minutes": null,
+     "minutes_max": null,
+     "note": null,
+     "sort": 2
+    },
+    {
+     "exercise_id": "lat_pulldown",
+     "sets": 3,
+     "reps_min": 12,
+     "reps_max": 12,
+     "sec_min": null,
+     "sec_max": null,
+     "minutes": null,
+     "minutes_max": null,
+     "note": null,
+     "sort": 3
+    },
+    {
+     "exercise_id": "leg_curl",
+     "sets": 2,
+     "reps_min": 15,
+     "reps_max": 15,
+     "sec_min": null,
+     "sec_max": null,
+     "minutes": null,
+     "minutes_max": null,
+     "note": null,
+     "sort": 4
+    },
+    {
+     "exercise_id": "shoulder_press",
+     "sets": 2,
+     "reps_min": 12,
+     "reps_max": 12,
+     "sec_min": null,
+     "sec_max": null,
+     "minutes": null,
+     "minutes_max": null,
+     "note": null,
+     "sort": 5
+    },
+    {
+     "exercise_id": "cable_crunch",
+     "sets": 3,
+     "reps_min": 12,
+     "reps_max": 15,
+     "sec_min": null,
+     "sec_max": null,
+     "minutes": null,
+     "minutes_max": null,
+     "note": null,
+     "sort": 6
+    },
+    {
+     "exercise_id": "plank",
+     "sets": 3,
+     "reps_min": null,
+     "reps_max": null,
+     "sec_min": 20,
+     "sec_max": 40,
+     "minutes": null,
+     "minutes_max": null,
+     "note": null,
+     "sort": 7
+    },
+    {
+     "exercise_id": "treadmill",
+     "sets": null,
+     "reps_min": null,
+     "reps_max": null,
+     "sec_min": null,
+     "sec_max": null,
+     "minutes": 20,
+     "minutes_max": null,
+     "note": "meyil 0–3%",
+     "sort": 8
+    }
+   ]
+  },
+  {
+   "id": "YA1",
+   "code": "YA",
+   "weekday": 2,
+   "name": "Yüngül aktivlik",
+   "kind": "yungul",
+   "items": [
+    {
+     "exercise_id": "brisk_walk",
+     "sets": null,
+     "reps_min": null,
+     "reps_max": null,
+     "sec_min": null,
+     "sec_max": null,
+     "minutes": 30,
+     "minutes_max": 40,
+     "note": null,
+     "sort": 1
+    },
+    {
+     "exercise_id": "dead_bug",
+     "sets": 3,
+     "reps_min": 10,
+     "reps_max": 10,
+     "sec_min": null,
+     "sec_max": null,
+     "minutes": null,
+     "minutes_max": null,
+     "note": null,
+     "sort": 2
+    },
+    {
+     "exercise_id": "bird_dog",
+     "sets": 2,
+     "reps_min": 10,
+     "reps_max": 10,
+     "sec_min": null,
+     "sec_max": null,
+     "minutes": null,
+     "minutes_max": null,
+     "note": null,
+     "sort": 3
+    },
+    {
+     "exercise_id": "stretch",
+     "sets": null,
+     "reps_min": null,
+     "reps_max": null,
+     "sec_min": null,
+     "sec_max": null,
+     "minutes": 5,
+     "minutes_max": 10,
+     "note": null,
+     "sort": 4
+    }
+   ]
+  },
+  {
+   "id": "B",
+   "code": "B",
+   "weekday": 3,
+   "name": "Full Body B + qarın",
+   "kind": "guc",
+   "items": [
+    {
+     "exercise_id": "goblet_squat",
+     "sets": 3,
+     "reps_min": 12,
+     "reps_max": 12,
+     "sec_min": null,
+     "sec_max": null,
+     "minutes": null,
+     "minutes_max": null,
+     "note": null,
+     "sort": 1
+    },
+    {
+     "exercise_id": "seated_cable_row",
+     "sets": 3,
+     "reps_min": 12,
+     "reps_max": 12,
+     "sec_min": null,
+     "sec_max": null,
+     "minutes": null,
+     "minutes_max": null,
+     "note": null,
+     "sort": 2
+    },
+    {
+     "exercise_id": "incline_chest_press",
+     "sets": 3,
+     "reps_min": 12,
+     "reps_max": 12,
+     "sec_min": null,
+     "sec_max": null,
+     "minutes": null,
+     "minutes_max": null,
+     "note": null,
+     "sort": 3
+    },
+    {
+     "exercise_id": "romanian_deadlift",
+     "sets": 3,
+     "reps_min": 10,
+     "reps_max": 10,
+     "sec_min": null,
+     "sec_max": null,
+     "minutes": null,
+     "minutes_max": null,
+     "note": "Yüngül başla",
+     "sort": 4
+    },
+    {
+     "exercise_id": "leg_extension",
+     "sets": 2,
+     "reps_min": 15,
+     "reps_max": 15,
+     "sec_min": null,
+     "sec_max": null,
+     "minutes": null,
+     "minutes_max": null,
+     "note": null,
+     "sort": 5
+    },
+    {
+     "exercise_id": "db_biceps_curl",
+     "sets": 2,
+     "reps_min": 12,
+     "reps_max": 12,
+     "sec_min": null,
+     "sec_max": null,
+     "minutes": null,
+     "minutes_max": null,
+     "note": null,
+     "sort": 6
+    },
+    {
+     "exercise_id": "triceps_pushdown",
+     "sets": 2,
+     "reps_min": 12,
+     "reps_max": 12,
+     "sec_min": null,
+     "sec_max": null,
+     "minutes": null,
+     "minutes_max": null,
+     "note": null,
+     "sort": 7
+    },
+    {
+     "exercise_id": "dead_bug",
+     "sets": 3,
+     "reps_min": 10,
+     "reps_max": 10,
+     "sec_min": null,
+     "sec_max": null,
+     "minutes": null,
+     "minutes_max": null,
+     "note": null,
+     "sort": 8
+    },
+    {
+     "exercise_id": "reverse_crunch",
+     "sets": 2,
+     "reps_min": 12,
+     "reps_max": 12,
+     "sec_min": null,
+     "sec_max": null,
+     "minutes": null,
+     "minutes_max": null,
+     "note": null,
+     "sort": 9
+    },
+    {
+     "exercise_id": "treadmill",
+     "sets": null,
+     "reps_min": null,
+     "reps_max": null,
+     "sec_min": null,
+     "sec_max": null,
+     "minutes": 20,
+     "minutes_max": null,
+     "note": "meyil 0–3%",
+     "sort": 10
+    }
+   ]
+  },
+  {
+   "id": "AB",
+   "code": "AB",
+   "weekday": 4,
+   "name": "Aktiv bərpa",
+   "kind": "yungul",
+   "items": [
+    {
+     "exercise_id": "outdoor_walk",
+     "sets": null,
+     "reps_min": null,
+     "reps_max": null,
+     "sec_min": null,
+     "sec_max": null,
+     "minutes": 30,
+     "minutes_max": null,
+     "note": null,
+     "sort": 1
+    },
+    {
+     "exercise_id": "mobility",
+     "sets": null,
+     "reps_min": null,
+     "reps_max": null,
+     "sec_min": null,
+     "sec_max": null,
+     "minutes": 10,
+     "minutes_max": null,
+     "note": null,
+     "sort": 2
+    },
+    {
+     "exercise_id": "stretch",
+     "sets": null,
+     "reps_min": null,
+     "reps_max": null,
+     "sec_min": null,
+     "sec_max": null,
+     "minutes": 5,
+     "minutes_max": null,
+     "note": null,
+     "sort": 3
+    }
+   ]
+  },
+  {
+   "id": "A2",
+   "code": "A",
+   "weekday": 5,
+   "name": "Full Body A + qarın",
+   "kind": "guc",
+   "items": [
+    {
+     "exercise_id": "leg_press",
+     "sets": 3,
+     "reps_min": 12,
+     "reps_max": 12,
+     "sec_min": null,
+     "sec_max": null,
+     "minutes": null,
+     "minutes_max": null,
+     "note": "İlk 2 həftə: hər setdə 3 təkrar ehtiyat qalsın",
+     "sort": 1
+    },
+    {
+     "exercise_id": "chest_press",
+     "sets": 3,
+     "reps_min": 12,
+     "reps_max": 12,
+     "sec_min": null,
+     "sec_max": null,
+     "minutes": null,
+     "minutes_max": null,
+     "note": null,
+     "sort": 2
+    },
+    {
+     "exercise_id": "lat_pulldown",
+     "sets": 3,
+     "reps_min": 12,
+     "reps_max": 12,
+     "sec_min": null,
+     "sec_max": null,
+     "minutes": null,
+     "minutes_max": null,
+     "note": null,
+     "sort": 3
+    },
+    {
+     "exercise_id": "leg_curl",
+     "sets": 2,
+     "reps_min": 15,
+     "reps_max": 15,
+     "sec_min": null,
+     "sec_max": null,
+     "minutes": null,
+     "minutes_max": null,
+     "note": null,
+     "sort": 4
+    },
+    {
+     "exercise_id": "shoulder_press",
+     "sets": 2,
+     "reps_min": 12,
+     "reps_max": 12,
+     "sec_min": null,
+     "sec_max": null,
+     "minutes": null,
+     "minutes_max": null,
+     "note": null,
+     "sort": 5
+    },
+    {
+     "exercise_id": "cable_crunch",
+     "sets": 3,
+     "reps_min": 12,
+     "reps_max": 15,
+     "sec_min": null,
+     "sec_max": null,
+     "minutes": null,
+     "minutes_max": null,
+     "note": null,
+     "sort": 6
+    },
+    {
+     "exercise_id": "plank",
+     "sets": 3,
+     "reps_min": null,
+     "reps_max": null,
+     "sec_min": 20,
+     "sec_max": 40,
+     "minutes": null,
+     "minutes_max": null,
+     "note": null,
+     "sort": 7
+    },
+    {
+     "exercise_id": "treadmill",
+     "sets": null,
+     "reps_min": null,
+     "reps_max": null,
+     "sec_min": null,
+     "sec_max": null,
+     "minutes": 20,
+     "minutes_max": 25,
+     "note": "meyil 0–3%",
+     "sort": 8
+    }
+   ]
+  },
+  {
+   "id": "YA2",
+   "code": "YA",
+   "weekday": 6,
+   "name": "Yüngül aktivlik",
+   "kind": "yungul",
+   "items": [
+    {
+     "exercise_id": "walk",
+     "sets": null,
+     "reps_min": null,
+     "reps_max": null,
+     "sec_min": null,
+     "sec_max": null,
+     "minutes": 40,
+     "minutes_max": 50,
+     "note": null,
+     "sort": 1
+    },
+    {
+     "exercise_id": "mobility",
+     "sets": null,
+     "reps_min": null,
+     "reps_max": null,
+     "sec_min": null,
+     "sec_max": null,
+     "minutes": 10,
+     "minutes_max": null,
+     "note": null,
+     "sort": 2
+    },
+    {
+     "exercise_id": "bike",
+     "sets": null,
+     "reps_min": null,
+     "reps_max": null,
+     "sec_min": null,
+     "sec_max": null,
+     "minutes": null,
+     "minutes_max": null,
+     "note": "istəyə görə",
+     "sort": 3
+    }
+   ]
+  },
+  {
+   "id": "IS",
+   "code": "IS",
+   "weekday": 7,
+   "name": "Tam istirahət",
+   "kind": "istirahet",
+   "items": []
+  }
+ ],
+ "checkpoints": [
+  {
+   "sort": 1,
+   "label": "Checkpoint 1",
+   "target_kg": 97.0,
+   "reward_text": "1 sərbəst yemək"
+  },
+  {
+   "sort": 2,
+   "label": "Checkpoint 2",
+   "target_kg": 94.0,
+   "reward_text": "1 sərbəst yemək"
+  },
+  {
+   "sort": 3,
+   "label": "Checkpoint 3",
+   "target_kg": 91.0,
+   "reward_text": "1 sərbəst yemək"
+  },
+  {
+   "sort": 4,
+   "label": "Checkpoint 4",
+   "target_kg": 88.0,
+   "reward_text": "1 sərbəst yemək"
+  },
+  {
+   "sort": 5,
+   "label": "Checkpoint 5",
+   "target_kg": 85.0,
+   "reward_text": "1 sərbəst yemək"
+  },
+  {
+   "sort": 6,
+   "label": "Final",
+   "target_kg": 82.0,
+   "reward_text": "1 sərbəst yemək"
+  }
+ ]
+}
