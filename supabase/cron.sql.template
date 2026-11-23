@@ -1,0 +1,11 @@
+-- Supabase → Database → Extensions: pg_cron və pg_net aktiv olsun. Sonra bunu SQL Editor-da Run et.
+create extension if not exists pg_cron;
+create extension if not exists pg_net;
+select cron.unschedule('push-tick') where exists (select 1 from cron.job where jobname = 'push-tick');
+select cron.schedule('push-tick', '*/5 * * * *', $$
+  select net.http_post(
+    url := 'https://__PROJECT_REF__.supabase.co/functions/v1/push-tick',
+    headers := jsonb_build_object('Content-Type', 'application/json', 'x-cron-secret', '__CRON_SECRET__'),
+    body := '{}'::jsonb
+  );
+$$);

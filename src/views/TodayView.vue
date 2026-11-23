@@ -4,6 +4,7 @@ import { Moon, Sun, MessageSquare, Calendar, Check, ChevronRight, Plus, Footprin
 import { useApp } from '../stores/app'
 import { repo } from '../repo'
 import Bar from '../components/Bar.vue'
+import NotificationsCard from '../components/NotificationsCard.vue'
 import { SLOTS } from '../lib/types'
 import { addDays, diffDays, isoWeekday, longDate, nowHM, programDay, WD_SHORT, weekDays, weekStart, dayNum } from '../lib/dates'
 import { fmt, fmtL } from '../lib/format'
@@ -278,6 +279,8 @@ const smallStep = computed(() => {
       </span>
       <ChevronRight :size="22" class="text-muted" />
     </RouterLink>
+
+    <NotificationsCard />
 
     <button type="button" class="self-center h-11 px-4 border-0 bg-transparent text-muted text-sm" @click="app.signOut().then(() => $router.replace('/giris'))">
       Çıxış ({{ app.email }})

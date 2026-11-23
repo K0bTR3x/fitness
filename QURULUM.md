@@ -29,3 +29,14 @@ Netlify kodu GitHub-dan götürür. GitHub-da boş, **private** repo yarat (məs
 3. İlk girişdən sonra Supabase-də **Authentication → Sign In / Providers → "Allow new users to sign up"** söndür. Beləliklə səndən başqa heç kim hesab aça bilməz.
 
 Pulsuz Supabase layihəsi 7 gün heç bir sorğu olmasa dayanır. Hər gün çəki yazdığın üçün bu baş verməməlidir; olsa, paneldə "Restore" bir düymədir, məlumat itmir.
+
+## 5. Bildirişlər (push)
+Açarlar layihə fayllarında `fitness/gizli/bildiris-acarlari.txt` faylındadır (GitHub-da yoxdur).
+1. **SQL Editor** → `supabase/migrations/0003_push.sql` → **Run**.
+2. **Edge Functions** → **Deploy a new function** → **Via Editor**. Adı `push-tick` olsun. `supabase/functions/push-tick/index.ts` faylını yapışdır → **Deploy**.
+3. Funksiyanın **Settings** bölməsində **Verify JWT** (Enforce JWT verification) ayarını **söndür** → Save. Funksiya yoxlamanı özü edir.
+4. **Edge Functions → Secrets**: `VAPID_PUBLIC_KEY`, `VAPID_PRIVATE_KEY`, `CRON_SECRET` (dəyərlər açar faylındadır).
+5. Açar faylının sonundakı cron SQL-ini **SQL Editor**-da **Run** et (hər 5 dəqiqədən bir yoxlayır).
+6. iPhone: tətbiqi **ana ekrandakı ikondan** aç → Bu gün ekranının aşağısında **Bildirişləri aç** → İcazə ver → **Sınaq göndər**.
+
+Cədvəl (Bakı vaxtı): 07:15 çəki, yemək saatları (07:30, 10:30, 13:00, 16:30, 20:15 — yedinsə gəlmir), iş günləri su (09:30–17:30) və hərəkət (11:30, 15:30), məşq günü 18:30, 21:30 Günü bağla (bağlanıbsa gəlmir).

@@ -39,4 +39,8 @@ export interface Repo {
   lastSets(exerciseIds: string[]): Promise<Record<string, SetLog>>
   // ilk dəfə çağırılanda keçən həftə checkpoint-lərini yoxlayır
   evaluateLastWeek(): Promise<number>
+  // bildirişlər
+  savePushSubscription(sub: PushSubscriptionJSON): Promise<void>
+  deletePushSubscription(endpoint: string): Promise<void>
+  sendTestPush(): Promise<number>
 }

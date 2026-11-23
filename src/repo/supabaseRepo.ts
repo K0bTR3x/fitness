@@ -135,5 +135,18 @@ export function makeSupabaseRepo(url: string, key: string): Repo {
       return out
     },
     async evaluateLastWeek() { return Number(check(await sb.rpc('evaluate_last_week'))) || 0 },
+    async savePushSubscription(sub) {
+      const k = sub.keys ?? {}
+      if (!sub.endpoint || !k.p256dh || !k.auth) throw new Error('Abunə məlumatı natamamdır.')
+      check(await sb.from('push_subscriptions').upsert(
+        { endpoint: sub.endpoint, p256dh: k.p256dh, auth: k.auth, user_agent: navigator.userAgent.slice(0, 200) },
+        { onConflict: 'endpoint' }).select('id'))
+    },
+    async deletePushSubscription(endpoint) { check(await sb.from('push_subscriptions').delete().eq('endpoint', endpoint).select('id')) },
+    async sendTestPush() {
+      const { data, error } = await sb.functions.invoke('push-tick', { body: { test: true } })
+      if (error) throw new Error('Funksiya cavab vermədi. Supabase-də push-tick funksiyası qurulubmu?')
+      return Number((data as { sent?: number })?.sent ?? 0)
+    },
   }
 }
