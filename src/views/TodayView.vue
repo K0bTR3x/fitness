@@ -1,10 +1,9 @@
 <script setup lang="ts">
 import { computed, onMounted, ref } from 'vue'
-import { Moon, Sun, MessageSquare, Calendar, Check, ChevronRight, Plus, Footprints, Dumbbell, Ruler, BookOpen, ShoppingCart } from 'lucide-vue-next'
+import { Moon, Sun, MessageSquare, Calendar, Check, ChevronRight, Plus, Footprints, Dumbbell, Ruler, BookOpen, ShoppingCart, Settings } from 'lucide-vue-next'
 import { useApp } from '../stores/app'
 import { repo } from '../repo'
 import Bar from '../components/Bar.vue'
-import NotificationsCard from '../components/NotificationsCard.vue'
 import { SLOTS } from '../lib/types'
 import { addDays, diffDays, isoWeekday, longDate, nowHM, programDay, WD_SHORT, weekDays, weekStart, dayNum } from '../lib/dates'
 import { fmt, fmtL } from '../lib/format'
@@ -290,10 +289,13 @@ const smallStep = computed(() => {
       <ChevronRight :size="22" class="text-muted" />
     </RouterLink>
 
-    <NotificationsCard />
-
-    <button type="button" class="self-center h-11 px-4 border-0 bg-transparent text-muted text-sm" @click="app.signOut().then(() => $router.replace('/giris'))">
-      Çıxış ({{ app.email }})
-    </button>
+    <RouterLink to="/parametrler" class="card px-4 min-h-[60px] flex items-center gap-3 text-ink no-underline">
+      <Settings :size="22" class="text-muted shrink-0" />
+      <span class="flex-1 flex flex-col gap-0.5">
+        <span class="text-base font-semibold">Parametrlər</span>
+        <span class="text-[13px] text-muted">Hədəflər, bildirişlər, görünüş, ixrac</span>
+      </span>
+      <ChevronRight :size="22" class="text-muted" />
+    </RouterLink>
   </main>
 </template>

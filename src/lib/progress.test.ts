@@ -33,3 +33,19 @@ describe('progress', () => {
     expect(by.su.tier).toBe(0); expect(by.su.sub).toBe('3 / 7 gün'); expect(by.bel.tier).toBe(1); expect(by.ilk5.tier).toBe(0)
   })
 })
+
+import { advise, epley, strengthHistory } from './strength'
+describe('strength', () => {
+  const rows = [
+    ...[1, 2, 3].map((n) => ({ date: '2026-11-24', exercise_id: 'leg_press', set_no: n, reps: 10, weight_kg: 60 })),
+    ...[1, 2, 3].map((n) => ({ date: '2026-11-27', exercise_id: 'leg_press', set_no: n, reps: 12, weight_kg: 60 })),
+    { date: '2026-11-27', exercise_id: 'plank', set_no: 1, reps: null, weight_kg: null },
+  ]
+  it('groups sessions, marks PR and advises increase', () => {
+    const [h] = strengthHistory(rows)
+    expect(h.sessions.length).toBe(2)
+    expect(h.sessions[1].pr).toBe(true)
+    expect(h.bestE1rm).toBeCloseTo(epley(60, 12))
+    expect(advise(h, 12, 5, String).kind).toBe('artir')
+  })
+})

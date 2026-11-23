@@ -73,6 +73,9 @@ export function makeSupabaseRepo(url: string, key: string): Repo {
       const r: any = check(await sb.from('goal_settings').select('*').lte('effective_from', date).order('effective_from', { ascending: false }).limit(1).single())
       return r as Goals
     },
+    async saveGoals(date, g) {
+      check(await sb.from('goal_settings').upsert({ user_id: await uid(), effective_from: date, kcal: g.kcal, kcal_tolerance: g.kcal_tolerance, protein_g: g.protein_g, fat_g: g.fat_g, carb_g: g.carb_g, water_ml: g.water_ml, water_training_bonus_ml: g.water_training_bonus_ml, steps: g.steps, reason: 'Parametrlər' }, { onConflict: 'user_id,effective_from' }))
+    },
     async getCheckpoints() {
       return check(await sb.from('checkpoints').select('*').order('sort')).map((c: any) => ({ ...c, target_kg: +c.target_kg, reached_avg_kg: n(c.reached_avg_kg) })) as Checkpoint[]
     },
@@ -93,6 +96,12 @@ export function makeSupabaseRepo(url: string, key: string): Repo {
     },
     async upsertWaist(date, cm) {
       check(await sb.from('body_measurements').upsert({ user_id: await uid(), date, waist_cm: cm }, { onConflict: 'user_id,date' }))
+    },
+    async getMeasurements() {
+      return check(await sb.from('body_measurements').select('date, waist_cm, chest_cm, arm_cm, hip_cm, thigh_cm').order('date')).map((r: any) => ({ date: r.date, waist_cm: n(r.waist_cm), chest_cm: n(r.chest_cm), arm_cm: n(r.arm_cm), hip_cm: n(r.hip_cm), thigh_cm: n(r.thigh_cm) }))
+    },
+    async upsertMeasurement(m) {
+      check(await sb.from('body_measurements').upsert({ user_id: await uid(), ...m }, { onConflict: 'user_id,date' }))
     },
     async getSleep(date) {
       const r: any = check(await sb.from('daily_checkins').select('sleep_hours, sleep_confirmed').eq('date', date).maybeSingle())
@@ -154,6 +163,10 @@ export function makeSupabaseRepo(url: string, key: string): Repo {
       const out: Record<string, SetLog> = {}
       for (const r of rows) if (!out[r.exercise_id]) out[r.exercise_id] = { ...r, weight_kg: n(r.weight_kg), incline_pct: n(r.incline_pct), speed_kmh: n(r.speed_kmh), minutes: n(r.minutes) }
       return out
+    },
+    async getSetHistory() {
+      const rows: any[] = check(await sb.from('workout_sets').select('exercise_id, set_no, reps, weight_kg, workout_sessions!inner(date)').not('weight_kg', 'is', null).limit(5000))
+      return rows.map((r) => ({ date: r.workout_sessions.date, exercise_id: r.exercise_id, set_no: r.set_no, reps: r.reps, weight_kg: n(r.weight_kg) }))
     },
     async evaluateLastWeek() { return Number(check(await sb.rpc('evaluate_last_week'))) || 0 },
     async savePushSubscription(sub) {

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, onMounted, ref } from 'vue'
-import { Ruler } from 'lucide-vue-next'
+import { Ruler, Trophy, ChevronRight } from 'lucide-vue-next'
 import { useApp } from '../stores/app'
 import { repo } from '../repo'
 import type { DayClosure, WeightEntry } from '../lib/types'
@@ -250,6 +250,11 @@ const waistDiff = computed(() => waist.value.length > 1 ? waist.value[waist.valu
         <RouterLink v-else to="/seher" class="flex items-center gap-2 text-primary-strong font-semibold text-[15px]"><Ruler :size="18" />İlk bel ölçüsünü yaz</RouterLink>
         <span class="text-[13px] text-muted">Hər bazar ertəsi səhər, göbək səviyyəsində, normal nəfəs verdikdən sonra.</span>
       </section>
+
+      <nav aria-label="Daha çox" class="grid grid-cols-2 gap-2.5">
+        <RouterLink to="/rekordlar" class="card px-3.5 py-3 flex items-center gap-2.5 text-ink no-underline"><Trophy :size="20" class="text-primary-strong shrink-0" /><span class="flex-1 text-[15px] font-semibold leading-tight">Güc rekordları</span><ChevronRight :size="18" class="text-muted shrink-0" /></RouterLink>
+        <RouterLink to="/olculer" class="card px-3.5 py-3 flex items-center gap-2.5 text-ink no-underline"><Ruler :size="20" class="text-primary-strong shrink-0" /><span class="flex-1 text-[15px] font-semibold leading-tight">Bədən ölçüləri</span><ChevronRight :size="18" class="text-muted shrink-0" /></RouterLink>
+      </nav>
     </template>
   </main>
 </template>

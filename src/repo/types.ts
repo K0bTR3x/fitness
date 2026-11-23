@@ -1,4 +1,4 @@
-import type { MealOverride } from '../lib/types'
+import type { BodyMeasurement, MealOverride, SetRow } from '../lib/types'
 import type { Catalog, Checkpoint, DayClosure, FoodLog, Goals, LogSlot, Profile, SetLog, WaterLog, WeightEntry, WorkoutSession } from '../lib/types'
 
 export interface Repo {
@@ -13,6 +13,7 @@ export interface Repo {
   loadCatalog(): Promise<Catalog>
   getProfile(): Promise<Profile>
   getGoals(date: string): Promise<Goals>
+  saveGoals(date: string, g: Goals): Promise<void>
   getCheckpoints(): Promise<Checkpoint[]>
   useReward(checkpointId: Checkpoint['id'], note: string, date: string): Promise<void>
   // çəki, bel, yuxu
@@ -20,6 +21,8 @@ export interface Repo {
   upsertWeight(date: string, kg: number): Promise<void>
   getWaist(upTo: string): Promise<{ date: string; waist_cm: number }[]>
   upsertWaist(date: string, cm: number): Promise<void>
+  getMeasurements(): Promise<BodyMeasurement[]>
+  upsertMeasurement(m: BodyMeasurement): Promise<void>
   getSleep(date: string): Promise<{ hours: number | null; confirmed: boolean }>
   upsertSleep(date: string, hours: number | null, confirmed: boolean): Promise<void>
   // su
@@ -44,6 +47,8 @@ export interface Repo {
   getWorkouts(from: string, to: string): Promise<{ date: string; template_id: string; status: string }[]>
   saveWorkout(s: WorkoutSession): Promise<void>
   lastSets(exerciseIds: string[]): Promise<Record<string, SetLog>>
+  /** Çəkili bütün setlər, sessiya tarixi ilə (güc rekordları üçün) */
+  getSetHistory(): Promise<SetRow[]>
   // ilk dəfə çağırılanda keçən həftə checkpoint-lərini yoxlayır
   evaluateLastWeek(): Promise<number>
   // bildirişlər

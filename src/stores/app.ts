@@ -108,6 +108,11 @@ export const useApp = defineStore('app', () => {
     weights.value = [...weights.value.filter((w) => w.date !== date), { date, weight_kg: kg }].sort((a, b) => a.date.localeCompare(b.date))
     checkpoints.value = await repo.getCheckpoints()
   }
+  async function saveGoals(g: Goals) {
+    await repo.saveGoals(today.value, g)
+    goals.value = g
+  }
+
   async function signOut() {
     await repo.signOut()
     email.value = null; booted.value = false
@@ -116,6 +121,6 @@ export const useApp = defineStore('app', () => {
   return {
     email, booted, error, catalog, profile, goals, checkpoints, today, weights, water, foodToday, closures, justOpened, overrides, planOn, swapMeal, resetMeal,
     todayPlan, todayTemplate, isTrainingDay, waterMl, waterGoal, totalsToday, todayWeight, lastWeight,
-    checkSession, boot, refresh, addWater, undoWater, setGlasses, slotLog, toggleEaten, addExtra, removeLog, saveWeight, signOut,
+    checkSession, boot, refresh, addWater, undoWater, setGlasses, slotLog, toggleEaten, addExtra, removeLog, saveWeight, saveGoals, signOut,
   }
 })

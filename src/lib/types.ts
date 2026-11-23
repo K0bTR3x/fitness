@@ -47,3 +47,5 @@ export interface WaterLog { id: number | string; date: string; ml: number; logge
 export interface DayClosure { date: string; kcal_total: number; protein_total: number; adherent: boolean }
 export interface SetLog { exercise_id: string; set_no: number; reps: number | null; weight_kg: number | null; seconds: number | null; minutes: number | null; incline_pct: number | null; speed_kmh: number | null }
 export interface WorkoutSession { date: string; template_id: string; status: 'tamamlandi' | 'qismen' | 'buraxildi'; sets: SetLog[] }
+export interface BodyMeasurement { date: string; waist_cm: number | null; chest_cm: number | null; arm_cm: number | null; hip_cm: number | null; thigh_cm: number | null }
+export interface SetRow { date: string; exercise_id: string; set_no: number; reps: number | null; weight_kg: number | null }

@@ -1,6 +1,6 @@
 // Demo rejimi: Supabase olmadan, hər şey bu telefonun yaddaşında (localStorage).
 import seed from '../data/seed.json'
-import type { Catalog, Checkpoint, DayClosure, FoodLog, Goals, Profile, SetLog, WaterLog, WeightEntry, MealOverride } from '../lib/types'
+import type { BodyMeasurement, Catalog, Checkpoint, DayClosure, FoodLog, Goals, Profile, SetLog, WaterLog, WeightEntry, MealOverride } from '../lib/types'
 import type { Repo } from './types'
 import { addDays, todayISO, weekStart } from '../lib/dates'
 
@@ -12,13 +12,14 @@ interface DB {
   workouts: { date: string; template_id: string; status: string; sets: SetLog[] }[]
   checkpoints: Checkpoint[]; seq: number
   overrides: MealOverride[]
+  measurements: BodyMeasurement[]; goals: Goals | null
 }
 const KEY = 'fd-demo-v1'
 let mem: DB | null = null
 
 function fresh(): DB {
   return {
-    email: null, overrides: [], weights: [], waist: [], sleep: {}, water: [], food: [], closures: [], workouts: [], seq: 1,
+    email: null, overrides: [], measurements: [], goals: null, weights: [], waist: [], sleep: {}, water: [], food: [], closures: [], workouts: [], seq: 1,
     checkpoints: seed.checkpoints.map((c, i) => ({ ...c, id: i + 1, status: 'gozleyir', reached_week: null, reached_avg_kg: null })) as Checkpoint[],
   }
 }
@@ -43,7 +44,8 @@ export const localRepo: Repo = {
   ensureUser: async () => {},
   loadCatalog: async () => seed as unknown as Catalog,
   getProfile: async () => seed.profile as Profile,
-  getGoals: async () => seed.goals as Goals,
+  getGoals: () => tx((db) => db.goals ?? (seed.goals as Goals)),
+  saveGoals: (_d, g) => tx((db) => { db.goals = g }),
   getCheckpoints: () => tx((db) => db.checkpoints),
   useReward: (id, note, date) => tx((db) => {
     const c = db.checkpoints.find((x) => x.id === id && x.status === 'hedefe_catildi')
@@ -53,7 +55,17 @@ export const localRepo: Repo = {
   getWeights: (a, b) => tx((db) => db.weights.filter((w) => between(w.date, a, b)).sort((x, y) => x.date.localeCompare(y.date))),
   upsertWeight: (date, kg) => tx((db) => { db.weights = db.weights.filter((w) => w.date !== date).concat({ date, weight_kg: kg }) }),
   getWaist: (upTo) => tx((db) => db.waist.filter((w) => w.date <= upTo).sort((x, y) => x.date.localeCompare(y.date))),
-  upsertWaist: (date, cm) => tx((db) => { db.waist = db.waist.filter((w) => w.date !== date).concat({ date, waist_cm: cm }) }),
+  upsertWaist: (date, cm) => tx((db) => {
+    db.waist = db.waist.filter((w) => w.date !== date).concat({ date, waist_cm: cm })
+    const m = db.measurements.find((x) => x.date === date)
+    if (m) m.waist_cm = cm; else db.measurements.push({ date, waist_cm: cm, chest_cm: null, arm_cm: null, hip_cm: null, thigh_cm: null })
+  }),
+  getMeasurements: () => tx((db) => [...db.measurements].sort((x, y) => x.date.localeCompare(y.date))),
+  upsertMeasurement: (m) => tx((db) => {
+    db.measurements = db.measurements.filter((x) => x.date !== m.date).concat(m)
+    db.waist = db.waist.filter((w) => w.date !== m.date)
+    if (m.waist_cm != null) db.waist.push({ date: m.date, waist_cm: m.waist_cm })
+  }),
   getSleep: (date) => tx((db) => db.sleep[date] ?? { hours: null, confirmed: false }),
   upsertSleep: (date, hours, confirmed) => tx((db) => { db.sleep[date] = { hours, confirmed } }),
   getWater: (date) => tx((db) => db.water.filter((w) => w.date === date)),
@@ -87,6 +99,7 @@ export const localRepo: Repo = {
       for (const st of w.sets) if (ids.includes(st.exercise_id) && !out[st.exercise_id]) out[st.exercise_id] = st
     return out
   }),
+  getSetHistory: () => tx((db) => db.workouts.flatMap((w) => w.sets.filter((st) => st.weight_kg != null).map((st) => ({ date: w.date, exercise_id: st.exercise_id, set_no: st.set_no, reps: st.reps, weight_kg: st.weight_kg })))),
   // Supabase versiyası ilə eyni qayda: 7/7 çəki, ortalama ≤ hədəf
   evaluateLastWeek: () => tx((db) => {
     const ws = addDays(weekStart(todayISO()), -7)
