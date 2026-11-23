@@ -8,7 +8,7 @@
    - Yeni query: `supabase/seed.sql` → **Run** (menyu, ərzaqlar, məşq planı).
 4. **Authentication → Sign In / Providers → Email**: "Enable Email provider" açıq, "Confirm email" açıq qala bilər.
 5. Şablonu dəyişmək üçün Supabase SMTP tələb edir. Pulsuz Resend qoş: resend.com-da tətbiqə girəcəyin e-poçtla qeydiyyatdan keç, API key yarat. Supabase → **Authentication → Emails → SMTP Settings**: Sender `onboarding@resend.dev`, Host `smtp.resend.com`, Port `465`, Username `resend`, Password = API key. (Test rejimi yalnız öz e-poçtuna göndərir, bu kifayətdir.)
-6. **Authentication → Emails → Magic Link** şablonunu `supabase/email-template.html` ilə əvəz et (məktubda link yox, 6 rəqəmli kod gəlsin).
+6. **Authentication → Emails → Templates**: həm **Confirm signup**, həm **Magic Link** şablonunu `supabase/email-template.html` ilə əvəz et (ilk girişdə Confirm signup gedir) (məktubda link yox, 6 rəqəmli kod gəlsin).
 7. **Project Settings → API**: `Project URL` və `anon public` açarını kopyala (növbəti addımda lazımdır).
 
 ## 2. Kod GitHub-da
